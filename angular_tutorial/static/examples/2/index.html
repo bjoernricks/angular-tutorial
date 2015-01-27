@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>One-way Data Binding</title>
+  </head>
+  <body>
+    <div>
+        Name: <input id="textInput" type="text"/>
+        Hello <span id="nameSpan"></span>!
+    </div>
+
+    <script>
+        var textInput = document.getElementById('textInput');
+        var nameSpan = document.getElementById('nameSpan');
+
+        textInput.addEventListener('keyup', function() {
+            nameSpan.innerHTML = textInput.value;
+        });
+    </script>
+  </body>
+</html>
