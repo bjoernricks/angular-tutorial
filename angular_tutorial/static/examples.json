@@ -39,5 +39,32 @@
                 ]
             }
         ]
+    },
+    {
+        "id": 2,
+        "name": "Controller",
+        "examples": [
+            {
+                "id": 6,
+                "message": "Module, Controller and Scope",
+                "files": [
+                    "index.html"
+                ]
+            },
+            {
+                "id": 7,
+                "message": "Variable Propagation",
+                "files": [
+                    "index.html"
+                ]
+            },
+            {
+                "id": 8,
+                "message": "Variable Propagation 2",
+                "files": [
+                    "index.html"
+                ]
+            }
+        ]
     }
 ]

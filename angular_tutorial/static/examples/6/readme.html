@@ -1,0 +1,52 @@
+<div>
+    Was ist neu?
+    <ul>
+        <li>Angular Module</li>
+        <li>ng-app Attribut geändert</li>
+        <li>Angular Controller</li>
+        <li>ng-controller Direktive</li>
+        <li>$scope</li>
+    </ul>
+</div>
+<div>
+    <h4>Modul</h4>
+    <ul>
+        <li>
+            Ein Modul enhält <em>Komponenten</em> einer Angular Webanwendung.
+        </li>
+        <li>
+            Ein Modul dient somit zur logischen Strukturierung eine Webanwendung.
+        </li>
+        <li>
+            Über das ng-app Attribut wird das zu ladende Modul angegeben.
+        </li>
+        <li>
+            In einem Modul können beliebig viele Controller definiert werden.
+        </li>
+    </ul>
+
+    <h4>Controller und Scope</h4>
+    <ul>
+        <li>
+            Anwendungslogik wird einem Controller gekapselt.
+        </li>
+        <li>
+            Jeder Controller bildet einen eigenen <em>Namensraum</em>.
+        </li>
+        <li>
+            Der Namensraum in AngularJS wird als Scope bezeichnet und durch die Variable $scope repräsentiert.
+        </li>
+        <li>
+            Wird in einem Angular Template kein Controller angegeben, referenzieren die Variablen den $rootScope,
+            wie das implizit in den vorherigen Beispielen der Fall war.
+        </li>
+        <li>
+            Wird in einem Angular Template ein Controller angegeben, referenzieren die Variablen den $scope des
+            Controllers.
+        </li>
+        <li>
+            Der Controller kann an jedes beliebige HTML Element gesetzt und auch in einem Kind-Element
+            überschrieben werden.
+        </li>
+    </ul>
+</div>
