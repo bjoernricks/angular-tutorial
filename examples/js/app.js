@@ -80,7 +80,6 @@ angTutApp.directive('atHljs', function() {
         restrict: 'A',
         controller: function($scope, $http) {
             var path = [
-                'examples/',
                 $scope.example.id,
                 $scope.file
             ].join('/');
