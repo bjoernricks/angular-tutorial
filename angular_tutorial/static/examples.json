@@ -71,6 +71,14 @@
                 "files": [
                     "index.html"
                 ]
+            },
+            {
+                "id": 10,
+                "message": "Code Seperation",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
             }
         ]
     },
