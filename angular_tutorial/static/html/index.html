@@ -20,7 +20,7 @@
         <div layout="column" layout-fill>
             <md-toolbar>
                 <div class="md-toolbar-tools">
-                    <md-button href="/">
+                    <md-button href="/" class="md-default-theme">
                         Angular Tutorial
                     </md-button>
                     <!-- fill up the space between left and right area -->
@@ -30,11 +30,22 @@
             <div layout="row">
                 <md-sidenav layout="column" class="md-whiteframe-z1"
                     md-component-id="left" md-is-locked-open="true">
-                    <md-content layout="column" flex ng-repeat="example in examples"
+                    <md-content layout="column" flex ng-repeat="section in examples"
                         class="md-theme-indigo">
-                        <md-button href="#/{{example.id}}" flex class="md-primary">
-                            Example {{example.id}}
+
+                        <md-button flex class="md-primary"
+                            ng-click="menu.toggleSelectSection(section)"
+                            md-highlight="menu.isSectionSelected(section)">
+                            {{section.name}}
                         </md-button>
+
+                        <a class="menu-item menu-sub-item md-menu-item"
+                            ng-repeat="example in section.examples"
+                            ng-show="menu.isSectionSelected(section)"
+                            ng-href="#{{example.id}}">
+                            Example {{example.id}}
+                        </a>
+
                     </md-content>
                 </md-sidenav>
                 <md-content flex="80" layout-padding layout-fill layout="column"
