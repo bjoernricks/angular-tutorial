@@ -14,9 +14,8 @@
                     console.log('new value is ' + newValue);
                 });
 
-                setTimeout(function(){
+                $timeout(function(){
                     $scope.lastName = 'Smith';
-                    $scope.$apply();
                 }, 1000);
             });
         </script>

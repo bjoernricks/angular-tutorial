@@ -64,6 +64,13 @@
                 "files": [
                     "index.html"
                 ]
+            },
+            {
+                "id": 9,
+                "message": "Variable Propagation 3",
+                "files": [
+                    "index.html"
+                ]
             }
         ]
     },
