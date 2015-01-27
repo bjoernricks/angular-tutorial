@@ -28,21 +28,44 @@ angTutApp.factory('examples', function($http) {
         list: getData,
         find: function(exampleNumber, callback) {
             getData(function(data) {
-                var index = parseInt(exampleNumber) - 1;
-                callback(data[index]);
+                var index = parseInt(exampleNumber);
+                angular.forEach(data, function(section, key) {
+                    angular.forEach(section.examples, function(example, key) {
+                        if (example.id == index) {
+                            callback(example);
+                        }
+                    });
+                });
             });
         }
     };
 });
 
-angTutApp.controller('HomeCtrl', function($scope, examples) {
+angTutApp.factory('menu', function() {
+    return self = {
+        selectSection: function(section) {
+            self.openedSection = section.id;
+        },
+        toggleSelectSection: function(section) {
+            self.openedSection = (self.openedSection === section.id ?
+                    null : section.id);
+        },
+        isSectionSelected: function(section) {
+            return self.openedSection === section.id;
+        }
+    };
+});
+
+angTutApp.controller('HomeCtrl', function($scope, examples, menu) {
+    $scope.menu = menu;
     examples.list(function(examples) {
         $scope.examples = examples;
     });
 });
 
 angTutApp.controller('ExampleDetailCtrl',
-    function($scope, $routeParams, $http, $sce, examples) {
+    function($scope, $routeParams, $http, $sce, examples, menu) {
+        $scope.menu = menu;
         examples.find($routeParams.exampleNumber, function(example) {
             $scope.example = example;
             var examplePath = 'examples/' + example.id;
