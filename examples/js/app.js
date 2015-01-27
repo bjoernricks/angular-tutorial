@@ -20,7 +20,7 @@ angTutApp.factory('examples', function($http) {
     function getData(callback) {
         $http({
             method: 'GET',
-            url: 'static/examples.json',
+            url: 'examples.json',
             cache: true
         }).success(callback);
     }
@@ -68,7 +68,7 @@ angTutApp.controller('ExampleDetailCtrl',
         $scope.menu = menu;
         examples.find($routeParams.exampleNumber, function(example) {
             $scope.example = example;
-            var examplePath = 'examples/' + example.id;
+            var examplePath = '' + example.id;
             $scope.runUrl = examplePath + '/index.html';
             $scope.readme = examplePath + '/readme.html';
         });

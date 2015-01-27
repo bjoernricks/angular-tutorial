@@ -1,13 +1,15 @@
 {
-    "name": "angular-tutorial",
-    "version": "0.1",
-    "dependencies": {
-        "angular": "1.3.x",
-        "angular-route": "1.3.x",
-        "angular-material": "0.6.0-rc1"
-    },
-    "authors": [
-        { "bricks": "Björn Ricks <bjoern.ricks@gmail.com" }
-    ],
-    "private": "true"
+  "name": "angular-tutorial",
+  "version": "0.1",
+  "dependencies": {
+    "angular": "1.3.x",
+    "angular-route": "1.3.x",
+    "angular-material": "~0.7.0"
+  },
+  "authors": [
+    {
+      "bricks": "Björn Ricks <bjoern.ricks@gmail.com"
+    }
+  ],
+  "private": "true"
 }

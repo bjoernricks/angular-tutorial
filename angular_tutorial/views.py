@@ -5,6 +5,7 @@ from flask import render_template, send_from_directory
 from flask.views import MethodView
 
 c_dir = os.path.dirname(__file__)
+e_dir = os.path.abspath(os.path.join(c_dir, os.pardir, "examples"))
 
 
 class TemplateView(MethodView):
@@ -25,11 +26,10 @@ class TemplateView(MethodView):
 class IndexView(MethodView):
 
     def get(self):
-        return send_from_directory(os.path.join(c_dir, "static", "html"),
-                                   "index.html")
+        return send_from_directory(os.path.join(e_dir, "html"), "index.html")
 
 
 class StaticView(MethodView):
 
     def get(self, filename):
-        return send_from_directory(os.path.join(c_dir, "static"), filename)
+        return send_from_directory(e_dir, filename)
