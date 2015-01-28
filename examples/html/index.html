@@ -17,41 +17,43 @@
         <script src="js/highlight.pack.js"></script>
         <script src="js/app.js"></script>
     </head>
-    <body layout="column">
-        <md-toolbar>
-            <div class="md-toolbar-tools">
-                <md-button href="/#/" class="md-default-theme">
-                    Angular Tutorial
-                </md-button>
-                <!-- fill up the space between left and right area -->
-                <span flex></span>
-            </div>
-        </md-toolbar>
-        <div layout="row" class="container">
-            <md-sidenav layout="column" class="md-whiteframe-z1"
-                md-component-id="left" md-is-locked-open="true">
+    <body layout="row" class="fill-height">
+        <md-sidenav layout="column" class="md-whiteframe-z1"
+            md-component-id="left" md-is-locked-open="true">
+            <md-toolbar layout="row">
+                <div class="md-toolbar-tools">
+                    <md-button href="/#/" flex class="md-default-theme">
+                        Angular Tutorial
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-content
+                class="md-theme-indigo">
+                <div ng-repeat="section in examples">
+                    <md-button class="menu-item menu-parent-item md-primary"
+                        ng-click="menu.toggleSelectSection(section)"
+                        md-highlight="menu.isSectionSelected(section)">
+                        {{section.name}}
+                    </md-button>
 
-                <md-content flex
-                    class="md-theme-indigo">
-                    <div ng-repeat="section in examples">
-                        <md-button class="menu-item md-primary"
-                            ng-click="menu.toggleSelectSection(section)"
-                            md-highlight="menu.isSectionSelected(section)">
-                            {{section.name}}
-                        </md-button>
+                    <md-button class="menu-item menu-sub-item md-menu-item"
+                        ng-repeat="example in section.examples"
+                        ng-show="menu.isSectionSelected(section)"
+                        ng-href="#{{example.id}}">
+                        Example {{example.id}}
+                    </md-button>
+                </div>
 
-                        <md-button class="menu-item menu-sub-item md-menu-item"
-                            ng-repeat="example in section.examples"
-                            ng-show="menu.isSectionSelected(section)"
-                            ng-href="#{{example.id}}">
-                            Example {{example.id}}
-                        </md-button>
-                    </div>
-
-                </md-content>
-            </md-sidenav>
-            <md-content layout-padding layout-fill md-scroll-y layout="column"
-                ng-view>
+            </md-content>
+        </md-sidenav>
+        <div role="main" layout="column" layout-fill>
+            <md-toolbar>
+                <div class="md-toolbar-tools">
+                    <span>{{menu.getSectionName()}}</span>
+                    <span flex />
+                </div>
+            </md-toolbar>
+            <md-content layout-padding md-scroll-y ng-view>
             </md-content>
         </div>
     </body>
