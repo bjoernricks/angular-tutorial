@@ -32,7 +32,8 @@
                 <div ng-repeat="section in examples">
                     <md-button class="menu-item menu-parent-item md-primary"
                         ng-click="menu.toggleSelectSection(section)"
-                        md-highlight="menu.isSectionSelected(section)">
+                        md-highlight="menu.isSectionSelected(section)"
+                        ng-href="#/sections/{{section.id}}">
                         {{section.name}}
                     </md-button>
 

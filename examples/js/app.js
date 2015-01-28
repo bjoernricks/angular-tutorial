@@ -10,6 +10,10 @@ angTutApp.config(['$routeProvider',
                 templateUrl: 'html/example-view.html',
                 controller: 'ExampleDetailCtrl'
             }).
+            when('/sections/:sectionNumber', {
+                templateUrl: 'html/section-view.html',
+                controller: 'SectionCtrl'
+            }).
             otherwise({
                 redirectTo: '/'
             });
@@ -35,6 +39,16 @@ angTutApp.factory('examples', function($http) {
                             callback(example);
                         }
                     });
+                });
+            });
+        },
+        findSection: function(sectionNumber, callback) {
+            getData(function(data) {
+                var index = parseInt(sectionNumber);
+                angular.forEach(data, function(section, key) {
+                    if (section.id == index) {
+                        callback(section);
+                    }
                 });
             });
         }
@@ -77,6 +91,15 @@ angTutApp.controller('ExampleDetailCtrl',
             var examplePath = '' + example.id;
             $scope.runUrl = examplePath + '/index.html';
             $scope.readme = examplePath + '/readme.html';
+        });
+    });
+
+angTutApp.controller('SectionCtrl',
+    function($scope, $routeParams, $http, $sce, examples, menu) {
+        $scope.menu = menu;
+        examples.findSection($routeParams.sectionNumber, function(section) {
+            $scope.section = section;
+            $scope.readme = 'section' + section.id + '.html';
         });
     });
 
