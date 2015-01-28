@@ -21,9 +21,14 @@ iframe {
     max-height: 40px;
     line-height: 40px;
     padding: 0px 28px;
-    color: #333;
+}
+
+.menu-parent-item {
+    color: #888;
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .menu-sub-item {
     text-transform: none;
+    color: #333;
 }
