@@ -44,14 +44,14 @@ angTutApp.factory('examples', function($http) {
 angTutApp.factory('menu', function() {
     return self = {
         selectSection: function(section) {
-            self.openedSection = section.id;
+            self.openedSection = section;
         },
         toggleSelectSection: function(section) {
-            self.openedSection = (self.openedSection === section.id ?
-                    null : section.id);
+            self.openedSection = (self.openedSection === section ?
+                    null : section);
         },
         isSectionSelected: function(section) {
-            return self.openedSection === section.id;
+            return self.openedSection === section;
         }
     };
 });
