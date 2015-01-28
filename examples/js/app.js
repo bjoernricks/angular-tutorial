@@ -6,7 +6,7 @@ angTutApp.config(['$routeProvider',
             when('/', {
                 templateUrl: 'html/home.html'
             }).
-            when('/:exampleNumber', {
+            when('/examples/:exampleNumber', {
                 templateUrl: 'html/example-view.html',
                 controller: 'ExampleDetailCtrl'
             }).
