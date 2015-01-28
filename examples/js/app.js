@@ -52,6 +52,12 @@ angTutApp.factory('menu', function() {
         },
         isSectionSelected: function(section) {
             return self.openedSection === section;
+        },
+        getSectionName: function() {
+            if (!self.openedSection) {
+                return "";
+            }
+            return self.openedSection.name;
         }
     };
 });
