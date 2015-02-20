@@ -1,0 +1,23 @@
+<div layout="row" flex layout-margin>
+    <div layout="column" flex>
+        <h1><a href="{{runUrl}}" target="_blank" >Example {{example.id}}</a></h1>
+        <h4>{{example.message}}</h4>
+
+        <div ng-include="readme" flex></div>
+    </div>
+
+    <div layout="column" flex class="md-whiteframe-z1" layout-padding>
+        <h2>Preview</h2>
+        <iframe ng-src="{{runUrl}}"></iframe>
+    </div>
+</div>
+
+<md-tabs md-selected="selectedIndex" flex class="md-whiteframe-z1">
+    <md-tab ng-repeat="file in example.files"
+        label="{{file}}">
+        <div class="demo-tab tab{{$index%4}}" layout="column">
+            <div at-hljs file="file" example="example">
+            </div>
+        </div>
+    </md-tab>
+</md-tabs>

@@ -1,0 +1,12 @@
+js/components
+
+syntax: glob
+**/*.pyc
+**/*.pyo
+*.swp
+.tmp*
+*.egg-info
+dist/*
+build/*
+lib/*
+**/*.orig

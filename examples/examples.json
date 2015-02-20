@@ -1,0 +1,108 @@
+[
+    {
+        "id": 1,
+        "name": "Data Binding",
+        "examples": [
+            {
+                "id": 1,
+                "message": "Beispiel mit Input-Feld",
+                "files": [
+                    "index.html"
+                ]
+            },
+            {
+                "id": 2,
+                "message": "Beispiel Eingabe mit DOM Events",
+                "files": [
+                    "index.html"
+                ]
+            },
+            {
+                "id": 3,
+                "message": "Beispiel Eingabe mit jQuery",
+                "files": [
+                    "index.html"
+                ]
+            },
+            {
+                "id": 4,
+                "message": "Beispiel Eingabe mit AngularJS",
+                "files": [
+                    "index.html"
+                ]
+            },
+            {
+                "id": 5,
+                "message": "The magic begins",
+                "files": [
+                    "index.html"
+                ]
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Controller",
+        "examples": [
+            {
+                "id": 6,
+                "message": "Module, Controller and Scope",
+                "files": [
+                    "index.html"
+                ]
+            },
+            {
+                "id": 7,
+                "message": "Variable Propagation",
+                "files": [
+                    "index.html"
+                ]
+            },
+            {
+                "id": 8,
+                "message": "Variable Propagation 2",
+                "files": [
+                    "index.html"
+                ]
+            },
+            {
+                "id": 9,
+                "message": "Variable Propagation 3",
+                "files": [
+                    "index.html"
+                ]
+            },
+            {
+                "id": 10,
+                "message": "Code Seperation",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
+            },
+            {
+                "id": 11,
+                "message": "Listen",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Filter",
+        "examples": []
+    },
+    {
+        "id": 4,
+        "name": "REST",
+        "examples": []
+    },
+    {
+        "id": 5,
+        "name": "Direktiven",
+        "examples": []
+    }
+]
