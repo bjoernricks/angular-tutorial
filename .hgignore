@@ -1,5 +1,3 @@
-js/components
-
 syntax: glob
 **/*.pyc
 **/*.pyo
@@ -10,3 +8,5 @@ dist/*
 build/*
 lib/*
 **/*.orig
+**/.bowerrc
+**/.bower.json
