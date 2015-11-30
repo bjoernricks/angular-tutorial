@@ -12,6 +12,7 @@
     .factory('conf', conf)
     .factory('examples', examples)
     .factory('menu', menu)
+    .directive('hl', hl)
     .directive('atHljs', at_hljs)
     .controller('HomeCtrl', home_ctrl)
     .controller('SectionCtrl', section_ctrl)
@@ -178,5 +179,28 @@
                 });
             }
         };
+    }
+
+    function hl() {
+        var directive = {
+            restrict: 'A',
+            link: link,
+        };
+        return directive;
+
+        function link(scope, element, attrs) {
+            var d = element.html();
+            var contentParent = angular.element(
+                '<pre><code class="highlight" ng-non-bindable></code></pre>'
+            );
+            var codeElement = contentParent.find('code');
+
+            element.empty();
+            element.append(contentParent);
+
+            var highlightedCode = hljs.highlightAuto(d);
+            console.log(highlightedCode);
+            codeElement.html(highlightedCode.value).addClass('highlight');
+        }
     }
 })();
