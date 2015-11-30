@@ -79,7 +79,19 @@
                         }
                     });
                 });
-            }
+            },
+            findSectionFromExample: function(exampleNumber, callback) {
+                getData(function(data) {
+                    var index = parseInt(exampleNumber);
+                    angular.forEach(data, function(section, key) {
+                        angular.forEach(section.examples, function(example, key) {
+                            if (example.id == index) {
+                                callback(section);
+                            }
+                        });
+                    });
+                });
+            },
         };
     }
 
