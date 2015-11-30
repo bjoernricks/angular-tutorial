@@ -25,10 +25,22 @@
             HTML Elemente können über spezielle Attribute angereichert werden.
         </li>
         <li>
-            Diese speziellen Attribute werden in Angular als <em>Dictives</em> bezeichnet.
+            Diese speziellen Attribute werden in Angular als <em>Directives</em> bezeichnet.
         </li>
         <li>
             Um z.B. eine Variable einem Input Feld zuzuweisen, muss die ng-model Direktive verwendet werden.
+        </li>
+        <li>
+            Direktiven bilden die <em>Komponenten</em> in Angular JS.
+        </li>
+        <li>
+            Eine Direktive kann neben Attributen auch über Elemente, CSS Klassen und HTML Kommentare referenziert werden.
+            <div hl>
+                <my-dir></my-dir>
+                <span my-dir="exp"></span>
+                <!-- directive: my-dir exp -->
+                <span class="my-dir: exp;"></span>
+            </div>
         </li>
     </ul>
 </div>
