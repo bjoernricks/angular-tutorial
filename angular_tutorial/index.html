@@ -27,8 +27,8 @@
                     </md-button>
                 </div>
             </md-toolbar>
-            <md-content class="md-theme-indigo">
-                <div ng-repeat="section in examples">
+            <md-content flex class="md-theme-indigo">
+                <div ng-repeat="section in examples" layout-margin>
                     <md-button class="menu-item menu-parent-item md-primary"
                         ng-click="menu.toggleSelectSection(section)"
                         md-highlight="menu.isSectionSelected(section)"
@@ -43,7 +43,6 @@
                         Example {{example.id}}
                     </md-button>
                 </div>
-
             </md-content>
         </md-sidenav>
         <div role="main" layout="column" layout-fill>
