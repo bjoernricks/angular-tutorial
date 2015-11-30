@@ -143,6 +143,10 @@
             $scope.runUrl = examplePath + 'index.html';
             $scope.readme = examplePath + 'readme.html';
         });
+
+        examples.findSectionFromExample($routeParams.exampleNumber, function(section) {
+            menu.setSelectSection(section);
+        });
     }
 
 
