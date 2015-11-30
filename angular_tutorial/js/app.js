@@ -113,6 +113,9 @@
                     return "";
                 }
                 return openedsection.name;
+            },
+            setSelectSection: function(section) {
+                openedsection = section;
             }
         };
         return service;
