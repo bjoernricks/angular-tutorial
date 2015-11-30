@@ -2,7 +2,7 @@
 
     <h1>{{section.name}}</h1>
 
-    <div ng-include="readme" flex></div>
+    <div ng-include="readme" flex layout-padding></div>
 
     <div ng-repeat="example in section.examples">
         <a href="#/examples/{{example.id}}">Example {{example.id}}: {{example.message}}</a>
