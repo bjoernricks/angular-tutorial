@@ -1,3 +1,8 @@
+/*
+ * Copyright 2015 Björn Ricks <bjoern.ricks@gmail.com>
+ *
+ */
+
 var angTutApp = angular.module('angTutApp', ['ngRoute', 'ngMaterial']);
 
 angTutApp.config(['$routeProvider',
