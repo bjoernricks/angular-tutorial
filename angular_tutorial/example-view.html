@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <md-tabs md-dynamic-height md-selected="selectedIndex" flex layout-fill class="md-whiteframe-z1">
+    <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex" flex class="md-whiteframe-z1">
         <md-tab ng-repeat="file in example.files" flex label="{{file}}">
             <md-content class="demo-tab tab{{$index%4}}">
                 <div at-hljs file="file" example="example" layout-margin layout-padding>
