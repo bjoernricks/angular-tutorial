@@ -106,7 +106,7 @@
                 openedsection = (openedsection === section ? null : section);
             },
             isSectionSelected: function(section) {
-                return openedsection === section;
+                return openedsection !== null && openedsection.id === section.id;
             },
             getSectionName: function() {
                 if (!openedsection) {
