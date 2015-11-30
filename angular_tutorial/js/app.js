@@ -90,32 +90,36 @@ angTutApp.controller('HomeCtrl', function($scope, examples, menu) {
     });
 });
 
-angTutApp.controller('ExampleDetailCtrl',
-    function($scope, $routeParams, $http, $sce, examples, menu) {
+angTutApp.controller('ExampleDetailCtrl', ['$scope', '$routeParams', '$http', '$sce', 'conf',
+        'examples', 'menu',
+    function($scope, $routeParams, $http, $sce, conf, examples, menu) {
         $scope.menu = menu;
         examples.find($routeParams.exampleNumber, function(example) {
             $scope.example = example;
-            var examplePath = '' + example.id;
-            $scope.runUrl = examplePath + '/index.html';
-            $scope.readme = examplePath + '/readme.html';
+            var examplePath = conf.examplesPath + example.id + '/';
+            $scope.runUrl = examplePath + 'index.html';
+            $scope.readme = examplePath + 'readme.html';
         });
-    });
+}]);
 
-angTutApp.controller('SectionCtrl',
-    function($scope, $routeParams, $http, $sce, examples, menu) {
+angTutApp.controller('SectionCtrl', ['$scope', '$routeParams', '$http', '$sce', 'conf', 'examples',
+        'menu',
+    function($scope, $routeParams, $http, $sce, conf, examples, menu) {
         $scope.menu = menu;
         examples.findSection($routeParams.sectionNumber, function(section) {
             $scope.section = section;
-            $scope.readme = 'section' + section.id + '.html';
+            $scope.readme = conf.examplesPath + 'section' + section.id + '.html';
         });
-    });
+    }
+]);
 
-angTutApp.directive('atHljs', function() {
+angTutApp.directive('atHljs', ['conf', function(conf) {
     return {
         scope: { file: '=', example: '=' },
         restrict: 'A',
         controller: function($scope, $http) {
             var path = [
+                conf.examplesPath,
                 $scope.example.id,
                 $scope.file
             ].join('/');
@@ -145,4 +149,4 @@ angTutApp.directive('atHljs', function() {
             });
         }
     };
-});
+}]);
