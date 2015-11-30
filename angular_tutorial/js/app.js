@@ -97,24 +97,25 @@
 
 
     function menu() {
-        return {
+        var openedsection = null;
+        var service = {
             selectSection: function(section) {
-                self.openedSection = section;
+                openedsection = section;
             },
             toggleSelectSection: function(section) {
-                self.openedSection = (self.openedSection === section ?
-                        null : section);
+                openedsection = (openedsection === section ? null : section);
             },
             isSectionSelected: function(section) {
-                return self.openedSection === section;
+                return openedsection === section;
             },
             getSectionName: function() {
-                if (!self.openedSection) {
+                if (!openedsection) {
                     return "";
                 }
-                return self.openedSection.name;
+                return openedsection.name;
             }
         };
+        return service;
     }
 
 
