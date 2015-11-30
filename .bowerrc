@@ -1,4 +1,4 @@
 {
-    "directory": "examples/js/components",
-    "analytics": false
+    "analytics": false,
+    "directory": "angular_tutorial/js/components/"
 }
