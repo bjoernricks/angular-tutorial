@@ -4,14 +4,14 @@ angTutApp.config(['$routeProvider',
     function($routeProvider) {
         $routeProvider.
             when('/', {
-                templateUrl: 'html/home.html'
+                templateUrl: 'home.html'
             }).
             when('/examples/:exampleNumber', {
-                templateUrl: 'html/example-view.html',
+                templateUrl: 'example-view.html',
                 controller: 'ExampleDetailCtrl'
             }).
             when('/sections/:sectionNumber', {
-                templateUrl: 'html/section-view.html',
+                templateUrl: 'section-view.html',
                 controller: 'SectionCtrl'
             }).
             otherwise({
