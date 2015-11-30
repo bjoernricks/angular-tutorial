@@ -20,6 +20,13 @@ angTutApp.config(['$routeProvider',
     }]
 );
 
+angTutApp.factory('conf', function() {
+    var service = {
+        examplesPath: 'examples/',
+    };
+    return service;
+});
+
 angTutApp.factory('examples', function($http) {
     function getData(callback) {
         $http({
