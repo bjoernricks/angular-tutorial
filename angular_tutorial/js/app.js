@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 Björn Ricks <bjoern.ricks@gmail.com>
+ * Copyright 2014 - 2015 Björn Ricks <bjoern.ricks@gmail.com>
  *
  */
 (function() {
