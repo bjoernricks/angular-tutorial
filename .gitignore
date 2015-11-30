@@ -1,3 +1,6 @@
+# ignore bower managed files
+angular_tutorial/js/components
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
