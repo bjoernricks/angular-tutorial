@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="nameApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Angular.js Example</title>
+        <script src="/js/components/angular/angular.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-controller="NameCtrl as ctrl">
+        <ul>
+            <li ng-repeat="name in ctrl.names">{{name}}</li>
+        </ul>
+        <div>
+            <input type="text" ng-model="ctrl.name">
+            <button ng-click="ctrl.addName()">Add</button>
+        </div>
+    </body>
+</html>
