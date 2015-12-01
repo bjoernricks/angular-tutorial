@@ -219,7 +219,6 @@
             element.append(contentParent);
 
             var highlightedCode = hljs.highlightAuto(d);
-            console.log(highlightedCode);
             codeElement.html(highlightedCode.value).addClass('highlight');
         }
     }
