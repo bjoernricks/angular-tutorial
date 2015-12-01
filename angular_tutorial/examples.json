@@ -82,6 +82,47 @@
             },
             {
                 "id": 11,
+                "message": "Minification",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "mini_app.js"
+                ]
+            },
+            {
+                "id": 12,
+                "message": "Explicit Dependency Injection",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
+            },
+            {
+                "id": 13,
+                "message": "Inject all stuff",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
+            },
+            {
+                "id": 14,
+                "message": "Controller As",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
+            },
+            {
+                "id": 15,
+                "message": "Controller Methods",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
+            },
+            {
+                "id": 16,
                 "message": "Listen",
                 "files": [
                     "index.html",
