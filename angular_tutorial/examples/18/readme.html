@@ -1,0 +1,37 @@
+<div>
+    Was ist neu?
+    <ul>
+        <li><code>.filter</code> statt <code>.controller</code></li>
+        <li>Filter gibt eine Funktion zurück</li>
+    </ul>
+</div>
+<div>
+    <p>
+        Über <code>.filter</code> können Filter in Angular JS registriert werden.
+    </p>
+    <p>
+        Ein Filter gibt immer eine Filterfunktion zurück. In dieser Filterfunktion können die Eingabewerte manipuliert
+        werden.
+    </p>
+    <p>
+        Auch Filtern können Abhängigkeiten <em>injected</em> werden:
+        <div hl>
+            truncateFilter.$inject = ['$log'];
+
+            function truncateFilter($log) {
+                function truncate(value) {
+                    var max = 20;
+                    var out = value;
+                    if (out.length > max) {
+                        $log.debug('Truncating ' + out);
+                        out = out.substr(0, max) + ' ...';
+                    }
+                    return out;
+                }
+
+                return truncate;
+            }
+        </div>
+    </p>
+</div>
+
