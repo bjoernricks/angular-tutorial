@@ -134,7 +134,16 @@
     {
         "id": 3,
         "name": "Filter",
-        "examples": []
+        "examples": [
+            {
+                "id": 17,
+                "message": "Formatierungsfilter",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
+            }
+        ]
     },
     {
         "id": 4,
