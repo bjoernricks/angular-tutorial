@@ -6,15 +6,15 @@
         <script src="/js/components/angular/angular.js"></script>
         <script>
             var nameApp = angular.module('nameApp', []);
-            nameApp.controller('NameCtrl', function ($scope){
+            nameApp.controller('NameCtrl', function ($scope) {
                 $scope.firstName = 'John';
                 $scope.lastName = 'Doe';
 
-                $scope.$watch('lastName', function(newValue, oldValue){
+                $scope.$watch('lastName', function(newValue, oldValue) {
                     console.log('new value is ' + newValue);
                 });
 
-                setTimeout(function(){
+                setTimeout(function() {
                     $scope.lastName = 'Smith';
                 }, 1000);
             });
