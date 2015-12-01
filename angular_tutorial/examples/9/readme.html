@@ -2,10 +2,24 @@
     Was ist neu?
     <ul>
         <li>$timeout statt setTimeout</li>
+        <li>Dependency Injection</li>
     </ul>
 </div>
 <div>
     <p>
-        Die spezielle AngularJS Funktion ersetzt setTimeout. Intern ruft diese Funktion <code>.$apply()</code> auf.
+        Die spezielle AngularJS Funktion ersetzt setTimeout. Intern ruft diese Funktion <code>$scope.$apply()</code>
+        auf.
+        <md-button class="md-fab md-primary md-mini"
+                href="https://github.com/angular/angular.js/blob/master/src/ng/timeout.js"
+                target="_blank" aria-label="Source" title="Source">S</md-button>
+    </p>
+    <p>
+        $timeout ist ein AngularJS <em>Service</em>, der an die Controller Funktion übergeben wird. AngularJS
+        verwendet hierzu das <em>Dependency Injection</em> Designmuster. Anhand der Variablennamen übergibt AngularJS
+        die vorher registrierten <em>Objekte</em> an die jeweilige JavaScript Funktion.
+    </p>
+    <p>
+        Auch <code>$scope</code> wird per <em>Dependency Injection</em> an die Funktion übergeben. Es ist somit auch möglich einen
+        Controller zu schreiben, der die <code>$scope</code> Variable gar nicht verwendet.
     </p>
 </div>
