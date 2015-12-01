@@ -1,0 +1,44 @@
+<div>
+    Was ist neu?
+    <ul>
+        <li><em>Controller as</em> Syntax im Template</li>
+        <li>Variablen werden im Controller <code>this</code> zugewiesen</li>
+    </ul>
+</div>
+<div>
+    <p>
+        Vorteile:
+        <ul>
+            <li>Klare Kapselung von Komponenten in Angular JS</li>
+            <li>Vorwärtskompatibilität zu Angular 2</li>
+        </ul>
+        <md-button href="https://www.youtube.com/watch?v=KdIretrDPhA"
+                target="_blank">Video: Refactoring to Components</md-button>
+    </p>
+    <p>
+        Daten werden an einen Controller gebunden. Die Daten befinden sich somit nicht mehr direkt im
+        <em>ominösen</em> <code>$scope</code>. Sie befinden sich immer noch indirekt im <code>$scope</code>.
+        Die <em>Controller as</em> Syntax entspricht in etwa:
+        <div hl>
+            angular.module('nameApp', [])
+                .controller('NameCtrl', NameCtrl);
+
+
+            NameCtrl.$inject = ['$scope', '$log', '$timeout'];
+
+            function NameCtrl($scope, $log, $timeout) {
+                var ctrl = this;
+                $scope.ctrl = ctrl;
+
+                ctrl.firstName = 'John';
+                ctrl.lastName = 'Doe';
+
+                $timeout(function() {
+                    $log.debug('Changing lastname to Smith');
+                    ctrl.lastName = 'Smith';
+                }, 1000);
+            }
+        </div>
+    </p>
+</div>
+
