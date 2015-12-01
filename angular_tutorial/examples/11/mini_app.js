@@ -1,0 +1,1 @@
+var nameApp=angular.module('nameApp',[]);nameApp.controller('NameCtrl',['$scope','$timeout',function(c,d){c.firstName='John';c.lastName='Doe';c.$watch('lastName',function(a,b){console.log('new value is '+a)});d(function(){c.lastName='Smith'},1000)}]);

@@ -7,8 +7,12 @@
         <script src="app.js"></script>
     </head>
     <body ng-controller="NameCtrl">
-        <ul>
-            <li ng-repeat="name in names">{{name}}</li>
-        </ul>
+        <div>
+            First name: <input ng-model="firstName" type="text"/>
+            <br>
+            Last name: <input ng-model="lastName" type="text"/>
+            <br>
+            Hello {{firstName}} {{lastName}}
+        </div>
     </body>
 </html>

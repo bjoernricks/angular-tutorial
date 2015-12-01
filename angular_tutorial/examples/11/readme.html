@@ -1,13 +1,21 @@
 <div>
     Was ist neu?
     <ul>
-        <li>ng-repeat</li>
+        <li>Dependency Injection ist auch mit Minification verwendbar</li>
     </ul>
 </div>
 <div>
     <p>
-        Mit ng-repeat kann über Listen iteriert werden. Für jeden Eintrag in der
-        Liste wird das HTML Element (inklusive Kindelemente) je einmal erzeugt.
+        Minification ist eini bei JavaScript häufig eingesetztes Verfahren, um die zu übertragenden Datenmengen zu
+        reduzieren. Dabei werden Präprozessoren auf den JavaScript (und CSS) Quellcode angewandt, welche den
+        Codeumfang reduzieren. Bei diesem Prozess werden z.B. Leerzeichen, Umbrüche, lange Variablennamen entfernt.
+    </p>
+    <p>
+        Da AngularJS über die Variablen erkennet, welche <em>Objekte</em> als Abhängigkeiten <em>injected</em>
+        werden muss, müssen die Variablen auch im <em>minifizierte</em> Code erhalten bleiben. Da Zeichenketten
+        nicht <em>minifiziert</em> werden können, werden diese einfach der Controller Funktion vorangestellt.
+        Die Funktionsparameter können dann auch umbenannt werden und müssen nicht mehr wie hier
+        <code>$scope</code> und <code>$timeout</code> heißen.
     </p>
 </div>
 
