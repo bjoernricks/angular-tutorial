@@ -137,7 +137,7 @@
         "examples": [
             {
                 "id": 17,
-                "message": "Formatierungsfilter",
+                "message": "Format filter",
                 "files": [
                     "index.html",
                     "app.js"
