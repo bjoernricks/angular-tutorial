@@ -150,6 +150,14 @@
                     "index.html",
                     "app.js"
                 ]
+            },
+            {
+                "id": 19,
+                "message": "Own format filter with arguments",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
             }
         ]
     },

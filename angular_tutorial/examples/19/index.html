@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="nameApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Angular.js Example</title>
+        <script src="/js/components/angular/angular.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-controller="ExampleCtrl as ctrl">
+        <div>
+            {{ ctrl.text }}
+        </div>
+        <div>
+            {{ ctrl.text | truncate }}
+        </div>
+        <div>
+            {{ ctrl.text | truncate:30 }}
+        </div>
+        <div>
+            {{ ctrl.text | truncate:ctrl.max }}
+        </div>
+        <div>
+            <input type="int" ng-model="ctrl.max">
+        </div>
+    </body>
+</html>
