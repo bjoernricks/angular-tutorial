@@ -173,6 +173,14 @@
         "id": 4,
         "name": "Services",
         "examples": [
+            {
+                "id": 21,
+                "message": "Simple Service",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
+            }
         ]
     },
     {

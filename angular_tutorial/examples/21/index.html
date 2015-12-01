@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="nameApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Angular.js Example</title>
+        <script src="/js/components/angular/angular.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-controller="ExampleCtrl as ctrl">
+        <ul>
+            <li ng-repeat="name in ctrl.names">{{name}}</li>
+        </ul>
+        <ul>
+            <li ng-repeat="name in ctrl.getNames()">{{name}}</li>
+        </ul>
+    </body>
+</html>

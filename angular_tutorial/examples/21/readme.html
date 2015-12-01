@@ -1,0 +1,42 @@
+<div>
+    Was ist neu?
+    <ul>
+        <li>Über <code>.factory</code> können <em>Services</em> registriert werden</li>
+        <li>Services können Daten und Methoden kapseln</li>
+    </ul>
+</div>
+<div>
+    <p>
+        Ein Service kapselt Daten in einer abgeschlossenen Komponente. D.h. die Datenhaltung sollte immer über einen
+        Service realisiert werden.
+    </p>
+    <p>
+        Services sind <b>Singletons</b>. D.h. sie werden nur einmal pro Angular JS Anwendung initalisiert. Somit kann über
+        über sie auch anwendungsweite Logik und Daten geteilt werden.
+    </p>
+    <p>
+        Services können den direkten Zugriff auf Daten einschränken. Im Beispiel ist kein Zugriff auf
+        <code>NameService.names</code> im Controller möglich.
+    </p>
+    <p>
+        Services können von anderen Services abhängig sein. Z.B.:
+        <div hl>
+            namesService.$inject = ['$log'];
+
+            function namesService($log) {
+                var names = ['Larry', 'Curly', 'Moe', 'John', 'Kelly', 'Thomas'];
+
+                var service = {
+                    getNames: get_names,
+                };
+                return service;
+
+                function get_names() {
+                    $log.debug('Returning all names ', names);
+                    return names;
+                }
+            }
+        </div>
+    </p>
+</div>
+
