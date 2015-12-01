@@ -6,7 +6,7 @@ iframe {
     border: 0;
 }
 
-.fill-height {
+md-tabs-content-wrapper, md-tab-content, md-tab-content > div, .fill-height {
     height: 100%;
 }
 
