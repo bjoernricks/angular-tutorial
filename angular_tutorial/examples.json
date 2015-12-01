@@ -158,6 +158,14 @@
                     "index.html",
                     "app.js"
                 ]
+            },
+            {
+                "id": 20,
+                "message": "Collection filter",
+                "files": [
+                    "index.html",
+                    "app.js"
+                ]
             }
         ]
     },
