@@ -6,13 +6,13 @@
         <script src="/js/components/angular/angular.js"></script>
         <script src="app.js"></script>
     </head>
-    <body ng-controller="NameCtrl as ctrl">
+    <body ng-controller="NameCtrl as c">
         <div>
-            First name: <input ng-model="ctrl.firstName" type="text"/>
+            First name: <input ng-model="c.firstName" type="text"/>
             <br>
-            Last name: <input ng-model="ctrl.lastName" type="text"/>
+            Last name: <input ng-model="c.lastName" type="text"/>
             <br>
-            Hello {{ctrl.firstName}} {{ctrl.lastName}}
+            Hello {{c.firstName}} {{c.lastName}}
         </div>
     </body>
 </html>
