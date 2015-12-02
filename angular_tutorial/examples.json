@@ -203,6 +203,16 @@
     {
         "id": 5,
         "name": "Direktiven",
-        "examples": []
+        "examples": [
+            {
+                "id": 24,
+                "message": "Simple template directive",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json"
+                ]
+            }
+        ]
     }
 ]
