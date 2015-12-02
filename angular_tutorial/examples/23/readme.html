@@ -1,7 +1,7 @@
 <div>
     Was ist neu?
     <ul>
-        <li>Angular JS $http Service wird benutzt</li>
+        <li>Angular JS <code>$http</code> Service wird benutzt</li>
         <li>Services können Daten und Methoden kapseln</li>
     </ul>
 </div>
@@ -9,15 +9,23 @@
     <p>
         Unser <code>NameService</code> verwendet den <code>$http</code> Service, um die Liste von Namen
         bereitzustellen.
+        <md-button href="https://docs.angularjs.org/api/ng/service/$http" target="_blank"
+                class="md-fab md-mini md-primary" title="API">API</md-button>
     </p>
     <p>
         Der Angular JS <code>$http</code> Service kapselt den Zugriff auf externe HTTP Resourcen mittels
         <a href="https://developer.mozilla.org/en/xmlhttprequest" target="_blank">XMLHttpRequest</a>.
     </p>
     <p>
-        Die $http Methoden geben sogenannte Promises zurück. Promises haben eine <code>then</code> Methode,
-        die ein Callback mit einem optionalen Argument erwarten. Im Fall von $http wird dabei ein <code>response</code>
-        Objekt übergeben. Das Callback wird erst aufgerufen, wenn die Daten vollständig geladen wurden.
+        Die $http Methoden geben sogenannte
+        <a href="https://docs.angularjs.org/api/ng/service/$q" taget="_blank">Promises</a>
+        zurück. Promises haben eine <code>then</code> Methode, die eine Callback-Funktion mit einem optionalen Argument
+        erwarten. Im Fall von $http wird dabei ein <code>response</code> Objekt übergeben. Das Callback wird erst
+        aufgerufen, wenn die Daten vollständig geladen wurden.
+    </p>
+    <p>
+        Die vollstänfige Signatur der <code>then</code> Methode des Angular JS Promise lautet:
+        <code>then(successCallback, errorCallback, notifyCallback)</code>.
     </p>
     <p>
         Dem Controller ist das <em>Backend</em> für die Namensdaten vollkommen egal.
