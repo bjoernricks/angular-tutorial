@@ -212,6 +212,16 @@
                     "app.js",
                     "names.json"
                 ]
+            },
+            {
+                "id": 25,
+                "message": "Simple directive with seperate template",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
             }
         ]
     }
