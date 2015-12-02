@@ -1,0 +1,26 @@
+<div>
+    Was ist neu?
+    <ul>
+        <li>Angular JS $http Service wird benutzt</li>
+        <li>Services können Daten und Methoden kapseln</li>
+    </ul>
+</div>
+<div>
+    <p>
+        Unser <code>NameService</code> verwendet den <code>$http</code> Service, um die Liste von Namen
+        bereitzustellen.
+    </p>
+    <p>
+        Der Angular JS <code>$http</code> Service kapselt den Zugriff auf externe HTTP Resourcen mittels
+        <a href="https://developer.mozilla.org/en/xmlhttprequest" target="_blank">XMLHttpRequest</a>.
+    </p>
+    <p>
+        Die $http Methoden geben sogenannte Promises zurück. Promises haben eine <code>then</code> Methode,
+        die ein Callback mit einem optionalen Argument erwarten. Im Fall von $http wird dabei ein <code>response</code>
+        Objekt übergeben. Das Callback wird erst aufgerufen, wenn die Daten vollständig geladen wurden.
+    </p>
+    <p>
+        Dem Controller ist das <em>Backend</em> für die Namensdaten vollkommen egal.
+    </p>
+</div>
+

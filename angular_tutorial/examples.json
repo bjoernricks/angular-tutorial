@@ -188,6 +188,15 @@
                     "index.html",
                     "app.js"
                 ]
+            },
+            {
+                "id": 23,
+                "message": "Http Data Service",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json"
+                ]
             }
         ]
     },
