@@ -18,7 +18,7 @@
     <p>
         Daten werden an einen Controller gebunden. Die Daten befinden sich somit nicht mehr direkt im
         <em>ominösen</em> <code>$scope</code>. Sie befinden sich immer noch indirekt im <code>$scope</code>.
-        Die <em>Controller as</em> Syntax entspricht in etwa:
+        Die <em>Controller as</em> Syntax entspricht in diesem Beispiel in etwa:
         <div hl>
             angular.module('nameApp', [])
                 .controller('NameCtrl', NameCtrl);
@@ -28,7 +28,7 @@
 
             function NameCtrl($scope, $log, $timeout) {
                 var ctrl = this;
-                $scope.ctrl = ctrl;
+                $scope.c = this;
 
                 ctrl.firstName = 'John';
                 ctrl.lastName = 'Doe';
