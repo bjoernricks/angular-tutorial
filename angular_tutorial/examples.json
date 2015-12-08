@@ -262,6 +262,16 @@
                     "names.json",
                     "name.html"
                 ]
+            },
+            {
+                "id": 30,
+                "message": "Directive and callbacks",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
             }
         ]
     }
