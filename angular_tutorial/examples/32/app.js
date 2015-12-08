@@ -33,6 +33,8 @@ function personsService($http) {
     }
 }
 
+configRoutes.$inject = ['$routeProvider'];
+
 function configRoutes($routeProvider) {
     $routeProvider
         .when('/', {
