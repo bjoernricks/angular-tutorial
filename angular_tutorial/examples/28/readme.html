@@ -1,14 +1,20 @@
 <div>
     Was ist neu?
     <ul>
-        <li></li>
-        <li></li>
+        <li>Für jeden Aufruf der Direktive wird ein eigener <em>isolierter</em> Scope erstellt</li>
+        <li>Die Variable <code>ctrl</code> ist somit im Scope nicht mehr verfügbar</li>
     </ul>
 </div>
 <div>
     <p>
+        Wird für die <code>scope</code> Property im <em>Directive defintion object</em> ein neues
+        Objekt erstellt, wird für jeden Aufruf der Direktive ein <em>isolierter</em> Scope erzeugt.
+        Dieser Scope ist somit <em>leer</em>.
     </p>
     <p>
+        Da hier im Controller der Direktive auf eine Property der nicht existierenden Variable
+        <code>ctrl</code> des Scopes zugegriffen wird, kommt es zu einer Exception und die Ausführung
+        des Codes wird gestoppt.
     </p>
 </div>
 
