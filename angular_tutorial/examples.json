@@ -242,6 +242,16 @@
                     "names.json",
                     "name.html"
                 ]
+            },
+            {
+                "id": 28,
+                "message": "Directive and isolates scope ",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
             }
         ]
     }
