@@ -252,6 +252,16 @@
                     "names.json",
                     "name.html"
                 ]
+            },
+            {
+                "id": 29,
+                "message": "Directive and isolate scope (Part 2) ",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
             }
         ]
     }
