@@ -1,0 +1,30 @@
+<div>
+    Was ist neu?
+    <ul>
+        <li>Controller As Syntax bei Direktiven</li>
+    </ul>
+</div>
+<div>
+    <p>
+        Die <em>Controller As</em> Syntax kann ebenfalls bei Controllern für Direktiven verwendet werden.
+    </p>
+    <p>
+        Über die <code>controllerAs</code> Property im <em>Directive Definition Object</em> kann der Name des
+        Controllers im Scope gesetzt werden. So kann festgelegt werden, unter welcher Variable der Controller im
+        Template angesprochen wird.
+    </p>
+    <p>
+        Für das Binden der Daten aus dem aufrufenden Code direkt an den Controller, muss eine weitere Property
+        gesetzt werden. Und zwar <code>bindToController</code>. Diese Property funktioniert seit Angular 1.4
+        genauso wie die <code>scope</code> Property, nur dass die Daten nicht an den Scope sondern an den
+        Controller gebunden werden.
+    </p>
+    Eine gute Anleitung in weitere Hinweise zur Controller As Syntax gib es unter
+    <a href="http://blog.thoughtram.io/angularjs/2015/01/02/exploring-angular-1.3-bindToController.html"
+            target="_blank">Exploring Angular 1.3: Binding to Directive Controllers</a>.
+    Eine weitere sehr gute Anleitung (allerdings geschrieben bevor die Controller As Syntax eingeführt wurde)
+    findet sich unter
+    <a href="https://amitgharat.wordpress.com/2013/06/08/the-hitchhikers-guide-to-the-directive/"
+            target="_blank">The Hitchhiker’s Guide to the Directive</a>.
+</div>
+

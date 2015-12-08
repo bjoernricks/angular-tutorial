@@ -272,6 +272,16 @@
                     "names.json",
                     "name.html"
                 ]
+            },
+            {
+                "id": 31,
+                "message": "Directive and controller as syntax",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
             }
         ]
     }

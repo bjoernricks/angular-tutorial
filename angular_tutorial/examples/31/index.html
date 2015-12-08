@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html ng-app="nameApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Angular.js Example</title>
+        <script src="/js/components/angular/angular.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-controller="ExampleCtrl as ctrl">
+        <b>{{ ctrl.max }}</b>
+        <ul>
+            <li ng-repeat="person in ctrl.persons | limitTo: ctrl.max"><name person="person" on-delete="ctrl.remove(person)"/></li>
+        </ul>
+        <ul>
+            <li ng-repeat="p in ctrl.persons | limitTo: ctrl.max"><name person="p" on-delete="ctrl.remove(person)"/></li>
+        </ul>
+    </body>
+</html>
