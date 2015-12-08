@@ -1,13 +1,36 @@
 <div>
     Was ist neu?
     <ul>
-        <li><li>
+        <li>Es wird eine Directivenfunktion als <em>name</em> registriert</li>
+        <li>Eine Direktivenfunktion muss ein sogenanntes
+            <em><a href="https://docs.angularjs.org/api/ng/service/$compile#directive-definition-object"
+                        target="_blank">Directive Definition Object</a></em> zurückgeben</li>
+        <li>Das <em>Directive Definition Object</em> bestimmt die Funktionsweise der Direktive</li>
     </ul>
 </div>
 <div>
     <p>
+        Über Direktiven kann HTML um weiteres Verhalten und Aussehen erweitert werden. Sie bilden somit
+        wiederverwendbare UI Elemente.
     </p>
     <p>
+        Die Direktiven werden aus ausgeführt, wenn deren registrierter Name (nach einer bestimmten Normalisierung
+        siehe <a href="https://docs.angularjs.org/guide/directive" target="_blank">Directive Guide</a>) im HTML
+        Code gefunden wird. Im einfachsten Fall wird anschließend die Direktive durch neuen HTML Code aus einem
+        Template ersetzt.
+    </p>
+    <p>
+        Über die <code>restrict</code> Property des <em>Directive Definition Objects</em> kann dabei
+        angegeben werden, welcher HTML Code dabei durchsucht wird.
+        <ul>
+            <li>'A' - HTML Attributenamen werden berücksichtigt</li>
+            <li>'E' - HTML Elementnamen werden berücksichtigt</li>
+            <li>'C' - HTML CSS Klassen werden berücksichtigt</li>
+            <li><em>'M' - HTML Kommentare werden berücksichtigt</em></li>
+        </ul>
+        Diese Einschränkungen können kombiniert werden. <em>'AEC'</em> berücksichtigt dann z.B. Attributnamen,
+        Elementnamen und CSS Klassen. Wird die <code>restrict</code> Property nicht explizit angegeben,
+        gilt der Default-Wert <em>'AE'</em>.
     </p>
 </div>
 
