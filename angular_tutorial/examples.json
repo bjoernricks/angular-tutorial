@@ -232,6 +232,16 @@
                     "names.json",
                     "name.html"
                 ]
+            },
+            {
+                "id": 27,
+                "message": "Directive with controllers",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
             }
         ]
     }
