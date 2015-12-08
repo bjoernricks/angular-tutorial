@@ -40,5 +40,13 @@
             }
         </div>
     </p>
+    <p>
+        Wieso wird hier <code>this</code> in der Variable <code>ctrl</code> gespeichert? Bei einfachen Controllern ist
+        dies nicht unbedingt nötig. Werden allerdings Funktionen im Controller verwendet werden, zeigt <code>this</code>
+        innerhalb dieser Funktionen nicht mehr auf den Controller. Dies ist z.B. hier innerhalb der anonymen Funktion
+        in <code>$timeout</code> der Fall. Würde <code>ctrl.lastName = 'Smith'</code>
+        <code>this.lastName = 'Smith'</code> lauten, würde die <code>lastName</code> Property nicht am Controller
+        geändert. Stattdessen würde die Property an der anonymen Funktion gesetzt.
+    </p>
 </div>
 
