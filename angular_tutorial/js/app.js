@@ -218,8 +218,15 @@
             element.empty();
             element.append(contentParent);
 
-            var highlightedCode = hljs.highlightAuto(d);
-            codeElement.html(highlightedCode.value).addClass('highlight');
+            var language = element.attr('hl');
+            var highlightedCode;
+            if (language) {
+                highlightedCode = hljs.highlightAuto(d, [language]);
+            }
+            else {
+                highlightedCode = hljs.highlightAuto(d);
+            }
+            codeElement.html(highlightedCode.value);
         }
     }
 })();
