@@ -299,6 +299,17 @@
                     "list.html",
                     "detail.html"
                 ]
+            },
+            {
+                "id": 33,
+                "message": "Routing with UI Router",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "list.html",
+                    "detail.html"
+                ]
             }
         ]
     }
