@@ -222,6 +222,16 @@
                     "names.json",
                     "name.html"
                 ]
+            },
+            {
+                "id": 26,
+                "message": "Directive and scopes",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
             }
         ]
     }
