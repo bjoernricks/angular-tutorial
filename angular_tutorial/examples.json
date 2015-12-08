@@ -245,7 +245,7 @@
             },
             {
                 "id": 28,
-                "message": "Directive and isolates scope ",
+                "message": "Directive and isolate scope ",
                 "files": [
                     "index.html",
                     "app.js",
