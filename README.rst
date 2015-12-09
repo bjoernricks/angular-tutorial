@@ -22,7 +22,7 @@ Afterwards bower install must be run::
 Running
 =======
 
-To start the tutorial a simple web server can be used. E.g. the node.js 
+To start the tutorial a simple web server can be used. E.g. the node.js
 http-server::
 
     ./node_modules/http-server/bin/http-server -c-1 angular_tutorial
@@ -30,3 +30,6 @@ http-server::
 The option -c-1 will disable browser caching. With the option -p a port can be
 specified. By default the http-server uses port 8080.
 
+Also it can be run directly from github pages at::
+
+    http://bjoernricks.github.io/angular-tutorial/
