@@ -21,7 +21,7 @@ function namesService($http) {
     return service;
 
     function get_names(callback) {
-        $http.get('/examples/23/names.json').then(function(response) {
+        $http.get('names.json').then(function(response) {
             callback(response.data);
         });
     }
@@ -30,6 +30,6 @@ function namesService($http) {
 function nameDirective() {
     return {
         restrict: 'AE',
-        templateUrl: '/examples/25/name.html'
+        templateUrl: 'name.html'
     };
 }
