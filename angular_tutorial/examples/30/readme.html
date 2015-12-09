@@ -1,0 +1,37 @@
+<div>
+    Was ist neu?
+    <ul>
+        <li>Bindung von Funktionen</li>
+    </ul>
+</div>
+<div>
+    <p>
+        Im vorherigen Beispiel könnte der Controller der Direktive die Personen aus der Liste entfernen.
+        Normalerweise möchte man die an eine Direktive übergebenen Daten aber nicht durch die Direktive ändern lassen.
+        Um der Direktive trotzdem eine Möglichkeit zu geben Aktionen auszuführen, können Callbacks verwendet werden.
+    </p>
+    <p>
+        Über die Notation <code>&amp;</code> können Expressions an den isolierten Scope der Direktive gebunden werden.
+        Diese Expressions sind dann als Funktion innerhalb der Direktive unter dem gebundenen Namen aufrufbar.
+        Sollen der Expression Argumente übergeben werden, müssen diese in der Objekt Syntax
+        (<code>{attr: value}</code>) notiert werden und <code>attr</code> muss dabei dem Namen der Variable aus der
+        Expression entsprechen. Daher funktioniert <code>on-delete="ctrl.remove(pal)"</code> aus diesem Beispiel nicht.
+    </p>
+    <p>
+        Neben dem Binding per <code>=</code> und <code>&amp;</code> gibt es noch eine weitere Möglichkeit.
+        <code>@</code> dient zum Binden von Daten in eine Richtung und zwar zur Direktive. D.h. Die Übergebenen Daten
+        können von der Direktive nicht geändert werden. Ändern sich aber die Daten im aufrufenden Kontext, wird die
+        Änderung auch in der Direktive sichtbar gemacht.
+    </p>
+    <p>
+        Zusammengefasst:
+        <div hl="javascript">
+            scope: {
+                oneWayBinding: '@',
+                twoWayBinding: '=',
+                expression: '&'
+            }
+        </div>
+    </p>
+</div>
+

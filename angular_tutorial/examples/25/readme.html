@@ -1,13 +1,19 @@
 <div>
     Was ist neu?
     <ul>
-        <li><li>
+        <li><code>templateUrl</code> statt <code>template</code></li>
     </ul>
 </div>
 <div>
     <p>
+        Wird im <em>Directive Definition Object</em> <code>templateUrl</code> statt
+        <code>template</code> verwendet, kann das Template auch von einer externen URL geladen werden.
+        Angular JS verwendet dann AJAX, um das Template asynchron im Hintergrund zu laden.
     </p>
     <p>
+        Die Verwendung von <code>templateUrl</code> sollte bevorzugt werden, da dadurch eine bessere
+        Trennung von Logik und Darstellung erreicht wird. <code>template</code> sollte eigentlich nur
+        bei sehr einfachen Direktiven und Templates verwendet werden.
     </p>
 </div>
 

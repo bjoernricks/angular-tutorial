@@ -1,0 +1,25 @@
+<div>
+    Was ist neu?
+    <ul>
+        <li>Über die <code>scope</code> Property können Daten an den isolierten Scope der Direktive übergeben werden</li>
+    </ul>
+</div>
+<div>
+    <p>
+        Die Syntax für das Übergeben von Daten an den isolierten Scope der Direktive lautet <code>variable: '=attr'</code>.
+        Dabei ist <code>variable</code> der Name der Property im neuen isolierten Scope und <code>attr</code> der
+        Name des HTML Attributes im Template. Wird <code>attr</code> weg gelassen und nur <code>variable: '='</code>
+        verwendet, lautet das Attribute im HTML Code ebenfalls variable. Beispiel:
+        Für <div hl>
+        <widget my-attr="ctrl.data"/>
+        </div> würde <code>scope</code> wie folgt lauten:
+        <div hl>
+        scope: {
+            myAttr: '=',
+        }
+        </div>
+    </p>
+    <p>
+    </p>
+</div>
+

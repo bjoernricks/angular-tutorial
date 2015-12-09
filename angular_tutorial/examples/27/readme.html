@@ -1,0 +1,23 @@
+<div>
+    Was ist neu?
+    <ul>
+        <li>Angezeigte Personen werden limitiert</li>
+        <li>Direktiven können eigene Controller besitzen</li>
+        <li>Controller von Direktiven können das Model verändern</li>
+    </ul>
+</div>
+<div>
+    <p>
+        Direktiven können mit eigenen Controllern verwendet werden. Diese Controller können eigenes Verhalten
+        implementieren.
+    </p>
+    <p>
+        Im eigentlichen Controller wird die maximal anzuzeigende Anzahl von Personen auf 4 festgelegt.
+        Der Controller der Direktive überschreibt diesen Wert allerdings mit dem Wert 5. Es werden im somit
+        im Endefekt 5 Personen angezeigt. Dies mag in diesem Beispiel unproblematisch oder sogar gewünscht sein, ist
+        aber ein Problem, wenn man überlegt, dass Direktiven wiederverwendbare Komponenten sind. In dem Fall könnte
+        z.B. eine verwendete externe Komponente die eigenen Daten unerwartet verändern einfach nur durch die
+        Verwendung des gleichen Varialennamens.
+    </p>
+</div>
+

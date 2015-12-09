@@ -222,6 +222,94 @@
                     "names.json",
                     "name.html"
                 ]
+            },
+            {
+                "id": 26,
+                "message": "Directive and scopes",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
+            },
+            {
+                "id": 27,
+                "message": "Directive with controllers",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
+            },
+            {
+                "id": 28,
+                "message": "Directive and isolate scope ",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
+            },
+            {
+                "id": 29,
+                "message": "Directive and isolate scope (Part 2) ",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
+            },
+            {
+                "id": 30,
+                "message": "Directive and callbacks",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
+            },
+            {
+                "id": 31,
+                "message": "Directive and controller as syntax",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "name.html"
+                ]
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Routing",
+        "examples": [
+            {
+                "id": 32,
+                "message": "Routing with ngRoute",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "list.html",
+                    "detail.html"
+                ]
+            },
+            {
+                "id": 33,
+                "message": "Routing with UI Router",
+                "files": [
+                    "index.html",
+                    "app.js",
+                    "names.json",
+                    "list.html",
+                    "detail.html"
+                ]
             }
         ]
     }

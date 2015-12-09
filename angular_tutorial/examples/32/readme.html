@@ -1,0 +1,38 @@
+<div>
+    Was ist neu?
+    <ul>
+        <li>.module('nameApp', ['ngRoute'])</li>
+        <li>Aufteilung der Anwendung in mehrere Module</li>
+        <li>.config zum Definieren der Routen</li>
+        <li>ng-view statt ng-controller</li>
+        <li>Anwendung besteht aus mehreren Templates</li>
+        <li>Templates werden je nach URL geladen und verwendet</li>
+    </ul>
+</div>
+<div>
+    <p>
+        Unsere Anwendung hängt jetzt von ngRoute ab. Daher muss die entsprechende JavaScript Datei angegeben und
+        geladen werden. Ebenfalls muss unser Anwendungsmodul die Abghängigkeit explizit definieren
+        <code>.module('nameApp', ['ngRoute'])</code>.
+    </p>
+    <p>
+        Weiterhin ist unsere Anwendung nun auf mehrere Module (<em>nameApp</em> und <em>nameApp.controllers</em>)
+        in entsprechenden JavaScript Dateien augeteilt. Da die Controller für die Routendefinition im Haupt-Modul
+        verwendet werden, hängt das Haupt-Modul auch von <em>nameApp.controllers</em> ab.
+    </p>
+    <p>
+        Statt der <code>ngController</code> Direktive wird jetzt <code>ngView</code> verwendet. Die Haupt-HTML-Datei
+        (hier index.html) definiert nur noch die Grundstruktur. Je nach Navigationsziel des Nutzers wird ein Controller
+        und eine View (Template) geladen und an die Stelle von ng-view gesetzt.
+    </p>
+    <p>
+        Die Routen müssen über eine Config Funktion definiert werden. Config Funktionen werden zum Start der Anwendung
+        von Angular JS aufgerufen, noch bevor Services initialisiert werden. Daher können auch keine Services in die
+        Config Funktionen injected werden. Stattdessen müssen hier Provider verwendet werden, die wiederum die
+        Services konfigurieren können.
+    </p>
+    <p>
+        Über den <code>$routeParams</code> Service können die Routenparameter in den Controllern abgerufen werden.
+    </p>
+</div>
+
