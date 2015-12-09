@@ -21,7 +21,7 @@ function namesService($http) {
     return service;
 
     function get_names(callback) {
-        $http.get('/examples/23/names.json').then(function(response) {
+        $http.get('names.json').then(function(response) {
             callback(response.data);
         });
     }

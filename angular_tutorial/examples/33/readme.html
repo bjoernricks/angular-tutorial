@@ -9,12 +9,26 @@
 </div>
 <div>
     <p>
+        Angular UI Router ist ein Modul aus dem <a href="http://angular-ui.github.io/"
+                target="_blank">Angular UI Projekt</a>. Angular UI enthält vor allem GUI Komponenten wie
+        z.B. Datepicker.
     </p>
     <p>
+        Der Angular UI Router ist deutlich umfangreicher als ngRoute. Statt URLs werden hier Zustände erstellt, die
+        eine Anwendung erreichen kann. Einem Zustand kann aber musn nicht unbedingt eine URL zugeordnet sein.
+        Die URLs können dann genauso wie bei ngRoute dynamische Parameter besitzen. Diese Parameter können dann
+        in den Controllern über den <code>$stateParams</code> Service abgerufen werden.
     </p>
     <p>
+        Jeder Zustand kann einen Elternzustand besitzen. Somit können baumartige Zustandsketten verwendet werden.
+        Verwendet ein Elternzustand bereits einen Controller, werden der Controller des Kind- und des Elterzustands
+        aufgerufen. Das gleiche gilt für die Viewtemplates. Somit können Elterntemplates weiter ui-view Direktiven
+        enthalten, in die die Kindtemplates eingefügt werden.
     </p>
     <p>
+        Um auf Anwendungsurls über Anchors zu verweisen, sollte am Besten die ui-sref Direktive verwendet werden.
+        Die ui-sref Direktive verwendet zur Navigation die Namen der Zustände statt der URL. Dies erlaubt ein
+        Austauschen der URLs und somit neues Layout der Anwendung, ohne das Verlinkungen zwingend angefasst werden
+        müssen.
     </p>
 </div>
-

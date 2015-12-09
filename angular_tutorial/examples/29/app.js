@@ -22,7 +22,7 @@ function personsService($http) {
     return service;
 
     function get_all(callback) {
-        $http.get('/examples/29/names.json').then(function(response) {
+        $http.get('names.json').then(function(response) {
             callback(response.data);
         });
     }
@@ -44,7 +44,7 @@ function NameDirectiveCtrl($scope) {
 function nameDirective() {
     return {
         restrict: 'AE',
-        templateUrl: '/examples/29/name.html',
+        templateUrl: 'name.html',
         controller: NameDirectiveCtrl,
         scope: {
             person: '=person',

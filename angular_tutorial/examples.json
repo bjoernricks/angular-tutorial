@@ -295,6 +295,7 @@
                 "files": [
                     "index.html",
                     "app.js",
+                    "controllers.js",
                     "names.json",
                     "list.html",
                     "detail.html"
@@ -306,6 +307,7 @@
                 "files": [
                     "index.html",
                     "app.js",
+                    "controllers.js",
                     "names.json",
                     "list.html",
                     "detail.html"

@@ -16,13 +16,13 @@ function personsService($http) {
     return service;
 
     function get_all() {
-        return $http.get('/examples/32/names.json').then(function(response) {
+        return $http.get('names.json').then(function(response) {
             return response.data;
         });
     }
 
     function get(id) {
-        return $http.get('/examples/32/names.json').then(function(response) {
+        return $http.get('names.json').then(function(response) {
             for(var i=0; i < response.data.length; i++) {
                 var data = response.data[i];
                 if (data.id == id) {
