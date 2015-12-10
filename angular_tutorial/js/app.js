@@ -212,20 +212,24 @@
             toggleSelectSection: function(section) {
                 openedsection = (openedsection === section ? null : section);
             },
-            isSectionSelected: function(section) {
-                return openedsection !== null && openedsection.id === section.id;
-            },
-            getSectionName: function() {
-                if (!openedsection) {
-                    return "";
-                }
-                return openedsection.name;
-            },
+            isSectionSelected: is_section_selected,
+            getSectionName: get_section_name,
             setSelectSection: function(section) {
                 openedsection = section;
             }
         };
         return service;
+
+        function is_section_selected(section) {
+            return angular.isObject(openedsection) && openedsection.id === section.id;
+        }
+
+        function get_section_name() {
+            if (!openedsection) {
+                return "";
+            }
+            return openedsection.name;
+        }
     }
 
 
