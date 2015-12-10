@@ -13,12 +13,10 @@
     .controller('SectionCtrl', SectionCtrl)
     .controller('ExampleDetailCtrl', ExampleDetailCtrl);
 
-    HomeCtrl.$inject = ['$scope', 'examplesService', 'menu'];
+    HomeCtrl.$inject = ['menu'];
 
-    function HomeCtrl($scope, examplesService) {
-        examplesService.get().then(function(examples) {
-            $scope.examples = examples;
-        });
+    function HomeCtrl(menu) {
+        var ctrl = this;
     }
 
     BaseCtrl.$inject = ['menu', 'examplesService'];
