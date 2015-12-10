@@ -207,15 +207,10 @@
         var openedsection = null;
         var selectedsection = null;
         var subtitle = null;
+
         var service = {
-            selectSection: function(section) {
-                selectedsection = angular.isDefined(section) ? section: null;
-                openedsection = selectedsection;
-                set_sub_title();
-            },
-            toggleSelectSection: function(section) {
-                openedsection = (openedsection === section ? null : section);
-            },
+            selectSection: select_section,
+            toggleSelectSection: toggle_selected_section,
             isSectionOpened: is_section_opened,
             isSectionSelected: is_section_selected,
             getSectionName: get_section_name,
@@ -243,6 +238,16 @@
 
         function is_section_selected(section) {
             return angular.isObject(selectedsection) && selectedsection.id === section.id;
+        }
+
+        function select_section(section) {
+            selectedsection = angular.isDefined(section) ? section: null;
+            openedsection = selectedsection;
+            set_sub_title();
+        }
+
+        function toggle_selected_section(section) {
+            openedsection = (openedsection === section ? null : section);
         }
 
         function get_section_name() {
