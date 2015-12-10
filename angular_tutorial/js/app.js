@@ -49,50 +49,59 @@
     examples.$inject = ['$http'];
 
     function examples($http) {
-        function getData(callback) {
+        var service = {
+            list: get_data,
+            find: find,
+            findSection: find_section,
+            findSectionFromExample: find_section_from_example,
+        };
+
+        return service;
+
+        function get_data(callback) {
             $http({
                 method: 'GET',
                 url: 'examples.json',
                 cache: true
             }).success(callback);
         }
-        return {
-            list: getData,
-            find: function(exampleNumber, callback) {
-                getData(function(data) {
-                    var index = parseInt(exampleNumber);
-                    angular.forEach(data, function(section, key) {
-                        angular.forEach(section.examples, function(example, key) {
-                            if (example.id == index) {
-                                callback(example);
-                            }
-                        });
+
+        function find(exampleNumber, callback) {
+            get_data(function(data) {
+                var index = parseInt(exampleNumber);
+                angular.forEach(data, function(section, key) {
+                    angular.forEach(section.examples, function(example, key) {
+                        if (example.id == index) {
+                            callback(example);
+                        }
                     });
                 });
-            },
-            findSection: function(sectionNumber, callback) {
-                getData(function(data) {
-                    var index = parseInt(sectionNumber);
-                    angular.forEach(data, function(section, key) {
-                        if (section.id == index) {
+            });
+        }
+
+        function find_section(sectionNumber, callback) {
+            get_data(function(data) {
+                var index = parseInt(sectionNumber);
+                angular.forEach(data, function(section, key) {
+                    if (section.id == index) {
+                        callback(section);
+                    }
+                });
+            });
+        }
+
+        function find_section_from_example(exampleNumber, callback) {
+            get_data(function(data) {
+                var index = parseInt(exampleNumber);
+                angular.forEach(data, function(section, key) {
+                    angular.forEach(section.examples, function(example, key) {
+                        if (example.id == index) {
                             callback(section);
                         }
                     });
                 });
-            },
-            findSectionFromExample: function(exampleNumber, callback) {
-                getData(function(data) {
-                    var index = parseInt(exampleNumber);
-                    angular.forEach(data, function(section, key) {
-                        angular.forEach(section.examples, function(example, key) {
-                            if (example.id == index) {
-                                callback(section);
-                            }
-                        });
-                    });
-                });
-            },
-        };
+            });
+        }
     }
 
 
