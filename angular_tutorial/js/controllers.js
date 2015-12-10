@@ -45,6 +45,7 @@
             ctrl.previous = examplesService.getPrevious();
             ctrl.hasPrevious = examplesService.hasPrevious();
             menu.selectSection(example.section);
+            menu.setSubTitle('Example ' + example.id);
         });
 
     }
