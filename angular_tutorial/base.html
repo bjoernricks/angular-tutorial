@@ -19,7 +19,7 @@
 
             <md-button class="menu-item menu-sub-item md-menu-item"
                 ng-repeat="example in section.examples"
-                ng-show="base.menu.isSectionSelected(section)"
+                ng-show="base.menu.isSectionOpened(section)"
                 ui-sref="example({exampleNumber: example.id})">
                 Example {{example.id}}
             </md-button>
