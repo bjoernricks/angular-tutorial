@@ -8,22 +8,22 @@
     angular.module('angTutApp.controllers',
         ['ui.router', 'ngMaterial']
     )
-    .controller('BaseCtrl', base_ctrl)
-    .controller('HomeCtrl', home_ctrl)
-    .controller('SectionCtrl', section_ctrl)
-    .controller('ExampleDetailCtrl', example_detail_ctrl);
+    .controller('BaseCtrl', BaseCtrl)
+    .controller('HomeCtrl', HomeCtrl)
+    .controller('SectionCtrl', SectionCtrl)
+    .controller('ExampleDetailCtrl', ExampleDetailCtrl);
 
-    home_ctrl.$inject = ['$scope', 'examplesService', 'menu'];
+    HomeCtrl.$inject = ['$scope', 'examplesService', 'menu'];
 
-    function home_ctrl($scope, examplesService) {
+    function HomeCtrl($scope, examplesService) {
         examplesService.get().then(function(examples) {
             $scope.examples = examples;
         });
     }
 
-    base_ctrl.$inject = ['menu', 'examplesService'];
+    BaseCtrl.$inject = ['menu', 'examplesService'];
 
-    function base_ctrl(menu, examplesService) {
+    function BaseCtrl(menu, examplesService) {
         var ctrl = this;
         ctrl.menu = menu;
         examplesService.get().then(function(examples) {
@@ -31,10 +31,10 @@
         });
     }
 
-    example_detail_ctrl.$inject = ['$stateParams', '$http', '$sce', 'conf', 'examplesService',
+    ExampleDetailCtrl.$inject = ['$stateParams', '$http', '$sce', 'conf', 'examplesService',
         'menu'];
 
-    function example_detail_ctrl($stateParams, $http, $sce, conf, examplesService, menu) {
+    function ExampleDetailCtrl($stateParams, $http, $sce, conf, examplesService, menu) {
         var ctrl = this;
         ctrl.menu = menu;
         examplesService.setExample($stateParams.exampleNumber).then(function(example) {
@@ -52,9 +52,9 @@
     }
 
 
-    section_ctrl = ['$stateParams', '$http', '$sce', 'conf', 'examplesService', 'menu'];
+    SectionCtrl = ['$stateParams', '$http', '$sce', 'conf', 'examplesService', 'menu'];
 
-    function section_ctrl($stateParams, $http, $sce, conf, examplesService, menu) {
+    function SectionCtrl($stateParams, $http, $sce, conf, examplesService, menu) {
         var ctrl = this;
         ctrl.menu = menu;
         examplesService.setSection($stateParams.sectionNumber).then(function(section) {
