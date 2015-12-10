@@ -116,23 +116,42 @@
         }
 
         function get_next() {
-            if (angular.isObject(example) && angular.isObject(example.next)) {
-                return $state.href('example', {exampleNumber: example.next.id});
+            if (angular.isObject(example)) {
+                if (angular.isObject(example.next)) {
+                    return $state.href('example', {exampleNumber: example.next.id});
+                }
+                if (angular.isObject(section) && angular.isObject(section.next)) {
+                    return $state.href('section', {sectionNumber: section.next.id});
+                }
             }
 
-            if (angular.isObject(section) && angular.isObject(section.next)) {
-                return $state.href('section', {sectionNumber: section.next.id});
+            if (angular.isObject(section)) {
+                if (section.examples.length > 0) {
+                    return $state.href('example', {exampleNumber: section.examples[0].id});
+                }
+                if (angular.isObject(section.next)) {
+                    return $state.href('section', {sectionNumber: section.next.id});
+                }
             }
 
             return "#/";
         }
 
         function get_previous() {
-            if (angular.isObject(example) && angular.isObject(example.prev)) {
-                return $state.href('example', {exampleNumber: example.prev.id});
+            if (angular.isObject(example)) {
+                if (angular.isObject(example.prev)) {
+                    return $state.href('example', {exampleNumber: example.prev.id});
+                }
+                if (angular.isObject(section) && angular.isObject(section.prev)) {
+                    return $state.href('section', {sectionNumber: section.prev.id});
+                }
             }
 
             if (angular.isObject(section) && angular.isObject(section.prev)) {
+                var nr = section.prev.examples.length - 1;
+                if (nr > 0) {
+                    return $state.href('example', {exampleNumber: section.prev.examples[nr].id});
+                }
                 return $state.href('section', {sectionNumber: section.prev.id});
             }
 
