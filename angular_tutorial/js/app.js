@@ -19,17 +19,27 @@
 
     function app_config($stateProvider, $urlRouterProvider) {
         $stateProvider.
+            state('base', {
+                    templateUrl: 'base.html',
+                    abstract: true,
+                    controller: 'BaseCtrl',
+                    controllerAs: 'base',
+            }).
             state('home', {
                     url: '/',
-                    templateUrl: 'home.html'
+                    parent: 'base',
+                    templateUrl: 'home.html',
+                    controller: 'HomeCtrl',
             }).
             state('example', {
+                    parent: 'base',
                     url: '/examples/:exampleNumber',
                     templateUrl: 'example-view.html',
                     controller: 'ExampleDetailCtrl',
                     controllerAs: 'ctrl',
             }).
             state('section', {
+                    parent: 'base',
                     url: '/sections/:sectionNumber',
                     templateUrl: 'section-view.html',
                     controller: 'SectionCtrl',

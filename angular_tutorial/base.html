@@ -1,0 +1,38 @@
+<md-sidenav flex layout="column" class="md-whiteframe-z1"
+    md-component-id="left" md-is-locked-open="true">
+    <md-toolbar layout="row">
+        <div class="md-toolbar-tools">
+            <img src="images/angularjs.svg" width="100">
+            <md-button href="#/" flex class="md-default-theme">
+                Tutorial
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-content flex class="md-theme-indigo">
+        <div ng-repeat="section in base.sections" layout-margin>
+            <md-button class="menu-item menu-parent-item md-primary"
+                ng-click="base.menu.toggleSelectSection(section)"
+                md-highlight="base.menu.isSectionSelected(section)"
+                ng-href="#/sections/{{section.id}}">
+                {{section.name}}
+            </md-button>
+
+            <md-button class="menu-item menu-sub-item md-menu-item"
+                ng-repeat="example in base.section.examples"
+                ng-show="base.menu.isSectionSelected(section)"
+                ng-href="#/examples/{{example.id}}">
+                Example {{example.id}}
+            </md-button>
+        </div>
+    </md-content>
+</md-sidenav>
+<div role="main" layout="column" layout-fill>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <span>{{ base.menu.getSectionName() }}</span>
+            <span flex />
+        </div>
+    </md-toolbar>
+    <md-content layout-padding md-scroll-y ui-view>
+    </md-content>
+</div>

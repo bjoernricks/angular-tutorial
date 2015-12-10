@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="angTutApp" ng-controller="HomeCtrl">
+<html ng-app="angTutApp">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
         <title>Angular Tutorial</title>
@@ -17,44 +17,6 @@
         <script src="js/app.js"></script>
         <script src="js/controllers.js"></script>
     </head>
-    <body layout="row">
-        <md-sidenav flex layout="column" class="md-whiteframe-z1"
-            md-component-id="left" md-is-locked-open="true">
-            <md-toolbar layout="row">
-                <div class="md-toolbar-tools">
-                    <img src="images/angularjs.svg" width="100">
-                    <md-button href="#/" flex class="md-default-theme">
-                        Tutorial
-                    </md-button>
-                </div>
-            </md-toolbar>
-            <md-content flex class="md-theme-indigo">
-                <div ng-repeat="section in examples" layout-margin>
-                    <md-button class="menu-item menu-parent-item md-primary"
-                        ng-click="menu.toggleSelectSection(section)"
-                        md-highlight="menu.isSectionSelected(section)"
-                        ng-href="#/sections/{{section.id}}">
-                        {{section.name}}
-                    </md-button>
-
-                    <md-button class="menu-item menu-sub-item md-menu-item"
-                        ng-repeat="example in section.examples"
-                        ng-show="menu.isSectionSelected(section)"
-                        ng-href="#/examples/{{example.id}}">
-                        Example {{example.id}}
-                    </md-button>
-                </div>
-            </md-content>
-        </md-sidenav>
-        <div role="main" layout="column" layout-fill>
-            <md-toolbar>
-                <div class="md-toolbar-tools">
-                    <span>{{menu.getSectionName()}}</span>
-                    <span flex />
-                </div>
-            </md-toolbar>
-            <md-content layout-padding md-scroll-y ui-view>
-            </md-content>
-        </div>
+     <body layout="row" ui-view>
     </body>
 </html>

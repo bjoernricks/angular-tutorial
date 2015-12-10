@@ -8,16 +8,26 @@
     angular.module('angTutApp.controllers',
         ['ui.router', 'ngMaterial']
     )
+    .controller('BaseCtrl', base_ctrl)
     .controller('HomeCtrl', home_ctrl)
     .controller('SectionCtrl', section_ctrl)
     .controller('ExampleDetailCtrl', example_detail_ctrl);
 
     home_ctrl.$inject = ['$scope', 'examplesService', 'menu'];
 
-    function home_ctrl($scope, examplesService, menu) {
-        $scope.menu = menu;
+    function home_ctrl($scope, examplesService) {
         examplesService.get().then(function(examples) {
             $scope.examples = examples;
+        });
+    }
+
+    base_ctrl.$inject = ['menu', 'examplesService'];
+
+    function base_ctrl(menu, examplesService) {
+        var ctrl = this;
+        ctrl.menu = menu;
+        examplesService.get().then(function(examples) {
+            ctrl.sections = examples;
         });
     }
 
