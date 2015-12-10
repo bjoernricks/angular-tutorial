@@ -206,6 +206,7 @@
     function menu() {
         var openedsection = null;
         var selectedsection = null;
+        var subtitle = null;
         var service = {
             selectSection: function(section) {
                 selectedsection = angular.isDefined(section) ? section: null;
@@ -218,6 +219,7 @@
             isSectionSelected: is_section_selected,
             getSectionName: get_section_name,
             getTitle: get_title,
+            setSubTitle: set_sub_title,
         };
         return service;
 
@@ -227,6 +229,9 @@
             if (sectionname) {
                 title = title + ' - ' + sectionname;
 
+            }
+            if (subtitle) {
+                title = title + ': ' + subtitle;
             }
             return title;
         }
@@ -244,6 +249,10 @@
                 return "";
             }
             return selectedsection.name;
+        }
+
+        function set_sub_title(title) {
+            subtitle = angular.isString(title) ? title : null;
         }
     }
 
