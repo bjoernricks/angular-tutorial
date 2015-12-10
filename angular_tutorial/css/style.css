@@ -17,6 +17,10 @@ md-tabs-content-wrapper, md-tab-content, md-tab-content > div {
     padding: 0px 28px;
 }
 
+.menu-item.md-active {
+    background-color: rgba(158, 158, 158, 0.2);
+}
+
 .menu-parent-item {
     color: #888;
     border-bottom: 1px solid rgba(0, 0, 0, 0.12);

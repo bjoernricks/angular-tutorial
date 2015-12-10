@@ -6,36 +6,46 @@
     'use strict';
 
     angular.module('angTutApp',
-        ['ngRoute', 'ngMaterial']
+        ['ui.router', 'ngMaterial', 'angTutApp.controllers']
     )
     .config(app_config)
     .factory('conf', conf)
-    .factory('examples', examples)
+    .factory('examplesService', examplesService)
     .factory('menu', menu)
     .directive('hl', hl)
-    .directive('atHljs', at_hljs)
-    .controller('HomeCtrl', home_ctrl)
-    .controller('SectionCtrl', section_ctrl)
-    .controller('ExampleDetailCtrl', example_detail_ctrl);
+    .directive('atHljs', at_hljs);
 
-    app_config.$inject = ['$routeProvider'];
+    app_config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
-    function app_config($routeProvider) {
-        $routeProvider.
-        when('/', {
-                templateUrl: 'home.html'
-        }).
-        when('/examples/:exampleNumber', {
-                templateUrl: 'example-view.html',
-                controller: 'ExampleDetailCtrl'
-        }).
-        when('/sections/:sectionNumber', {
-                templateUrl: 'section-view.html',
-                controller: 'SectionCtrl'
-        }).
-        otherwise({
-                redirectTo: '/'
-        });
+    function app_config($stateProvider, $urlRouterProvider) {
+        $stateProvider.
+            state('base', {
+                    templateUrl: 'base.html',
+                    abstract: true,
+                    controller: 'BaseCtrl',
+                    controllerAs: 'base',
+            }).
+            state('home', {
+                    url: '/',
+                    parent: 'base',
+                    templateUrl: 'home.html',
+                    controller: 'HomeCtrl',
+            }).
+            state('example', {
+                    parent: 'base',
+                    url: '/examples/:exampleNumber',
+                    templateUrl: 'example-view.html',
+                    controller: 'ExampleDetailCtrl',
+                    controllerAs: 'ctrl',
+            }).
+            state('section', {
+                    parent: 'base',
+                    url: '/sections/:sectionNumber',
+                    templateUrl: 'section-view.html',
+                    controller: 'SectionCtrl',
+                    controllerAs: 'ctrl',
+            });
+        $urlRouterProvider.otherwise('/');
     }
 
     function conf() {
@@ -45,119 +55,211 @@
         return service;
     }
 
+    examplesService.$inject = ['$http', '$q', '$state'];
 
-    examples.$inject = ['$http'];
+    function examplesService($http, $q, $state) {
 
-    function examples($http) {
-        function getData(callback) {
-            $http({
-                method: 'GET',
-                url: 'examples.json',
-                cache: true
-            }).success(callback);
-        }
-        return {
-            list: getData,
-            find: function(exampleNumber, callback) {
-                getData(function(data) {
-                    var index = parseInt(exampleNumber);
-                    angular.forEach(data, function(section, key) {
-                        angular.forEach(section.examples, function(example, key) {
-                            if (example.id == index) {
-                                callback(example);
-                            }
-                        });
-                    });
-                });
-            },
-            findSection: function(sectionNumber, callback) {
-                getData(function(data) {
-                    var index = parseInt(sectionNumber);
-                    angular.forEach(data, function(section, key) {
-                        if (section.id == index) {
-                            callback(section);
-                        }
-                    });
-                });
-            },
-            findSectionFromExample: function(exampleNumber, callback) {
-                getData(function(data) {
-                    var index = parseInt(exampleNumber);
-                    angular.forEach(data, function(section, key) {
-                        angular.forEach(section.examples, function(example, key) {
-                            if (example.id == index) {
-                                callback(section);
-                            }
-                        });
-                    });
-                });
-            },
+        var section = null;
+        var example = null;
+        var examples = null;
+
+        var service = {
+            get: get_examples,
+            setSection: set_section,
+            setExample: set_example,
+            getNext: get_next,
+            hasNext: has_next,
+            hasPrevious: has_previous,
+            getPrevious: get_previous,
         };
-    }
 
+        return service;
+
+        function set_section(sectionid) {
+            return get_examples().then(function(data) {
+                for(var i=0; i < data.length; i++) {
+                    var sec = data[i];
+                    if (sec.id == sectionid) {
+                        section = sec;
+                        example = null;
+                        return section;
+                    }
+                }
+            });
+        }
+
+        function set_example(exampleid) {
+            return get_examples().then(function(data) {
+                for(var i=0; i < data.length; i++) {
+                    var sec = data[i];
+                    for(var j=0; j < sec.examples.length; j++) {
+                        var ex = sec.examples[j];
+                        if (ex.id == exampleid) {
+                            section = sec;
+                            example = ex;
+                            return example;
+                        }
+                    }
+                }
+            });
+        }
+
+        function get_examples() {
+            var deferred = $q.defer();
+
+            if (examples !== null) {
+                deferred.resolve(examples);
+            }
+            else {
+                $http.get('examples.json', {cache: true}).then(
+                    function(response) {
+                        set_examples(response.data);
+                        deferred.resolve(examples);
+                    },
+                    function(response) {
+                        deferred.reject(response);
+                    }
+                );
+            }
+
+            return deferred.promise;
+        }
+
+        function get_next() {
+            if (angular.isObject(example)) {
+                if (angular.isObject(example.next)) {
+                    return $state.href('example', {exampleNumber: example.next.id});
+                }
+                if (angular.isObject(section) && angular.isObject(section.next)) {
+                    return $state.href('section', {sectionNumber: section.next.id});
+                }
+            }
+
+            if (angular.isObject(section)) {
+                if (section.examples.length > 0) {
+                    return $state.href('example', {exampleNumber: section.examples[0].id});
+                }
+                if (angular.isObject(section.next)) {
+                    return $state.href('section', {sectionNumber: section.next.id});
+                }
+            }
+
+            return "#/";
+        }
+
+        function get_previous() {
+            if (angular.isObject(example)) {
+                if (angular.isObject(example.prev)) {
+                    return $state.href('example', {exampleNumber: example.prev.id});
+                }
+                if (angular.isObject(section) && angular.isObject(section.prev)) {
+                    return $state.href('section', {sectionNumber: section.prev.id});
+                }
+            }
+
+            if (angular.isObject(section) && angular.isObject(section.prev)) {
+                var nr = section.prev.examples.length - 1;
+                if (nr > 0) {
+                    return $state.href('example', {exampleNumber: section.prev.examples[nr].id});
+                }
+                return $state.href('section', {sectionNumber: section.prev.id});
+            }
+
+            return "#/";
+        }
+
+        function has_next() {
+            return (angular.isObject(example) && angular.isObject(example.next)) ||
+                (angular.isObject(section) && angular.isObject(section.next));
+        }
+
+        function has_previous() {
+            return angular.isObject(section) && angular.isObject(example);
+        }
+
+        function set_examples(data) {
+            var secprev = null;
+            for (var i=0; i < data.length; i++) {
+                var sec = data[i];
+
+                sec.prev = secprev;
+                if (angular.isObject(secprev)) {
+                    secprev.next = sec;
+                }
+                secprev = sec;
+
+                var exprev = null;
+                for (var j=0; j < sec.examples.length; j++) {
+                    var ex = sec.examples[j];
+                    ex.prev = exprev;
+                    ex.section = sec;
+                    if (angular.isObject(exprev)) {
+                        exprev.next = ex;
+                    }
+                    exprev = ex;
+                }
+            }
+            examples = data;
+        }
+    }
 
     function menu() {
         var openedsection = null;
+        var selectedsection = null;
+        var subtitle = null;
+
         var service = {
-            selectSection: function(section) {
-                openedsection = section;
-            },
-            toggleSelectSection: function(section) {
-                openedsection = (openedsection === section ? null : section);
-            },
-            isSectionSelected: function(section) {
-                return openedsection !== null && openedsection.id === section.id;
-            },
-            getSectionName: function() {
-                if (!openedsection) {
-                    return "";
-                }
-                return openedsection.name;
-            },
-            setSelectSection: function(section) {
-                openedsection = section;
-            }
+            selectSection: select_section,
+            toggleSelectSection: toggle_selected_section,
+            isSectionOpened: is_section_opened,
+            isSectionSelected: is_section_selected,
+            getSectionName: get_section_name,
+            getTitle: get_title,
+            setSubTitle: set_sub_title,
         };
         return service;
-    }
 
+        function get_title() {
+            var title = 'Angular Tutorial';
+            var sectionname = get_section_name();
+            if (sectionname) {
+                title = title + ' - ' + sectionname;
 
-    home_ctrl.$inject = ['$scope', 'examples', 'menu'];
+            }
+            if (subtitle) {
+                title = title + ': ' + subtitle;
+            }
+            return title;
+        }
 
-    function home_ctrl($scope, examples, menu) {
-        $scope.menu = menu;
-        examples.list(function(examples) {
-            $scope.examples = examples;
-        });
-    }
+        function is_section_opened(section) {
+            return angular.isObject(openedsection) && openedsection.id === section.id;
+        }
 
+        function is_section_selected(section) {
+            return angular.isObject(selectedsection) && selectedsection.id === section.id;
+        }
 
-    example_detail_ctrl.$inject = ['$scope', '$routeParams', '$http', '$sce', 'conf',
-        'examples', 'menu'];
+        function select_section(section) {
+            selectedsection = angular.isDefined(section) ? section: null;
+            openedsection = selectedsection;
+            set_sub_title();
+        }
 
-    function example_detail_ctrl($scope, $routeParams, $http, $sce, conf, examples, menu) {
-        $scope.menu = menu;
-        examples.find($routeParams.exampleNumber, function(example) {
-            $scope.example = example;
-            var examplePath = conf.examplesPath + example.id + '/';
-            $scope.runUrl = examplePath + 'index.html';
-            $scope.readme = examplePath + 'readme.html';
-        });
+        function toggle_selected_section(section) {
+            openedsection = (openedsection === section ? null : section);
+        }
 
-        examples.findSectionFromExample($routeParams.exampleNumber, function(section) {
-            menu.setSelectSection(section);
-        });
-    }
+        function get_section_name() {
+            if (!selectedsection) {
+                return "";
+            }
+            return selectedsection.name;
+        }
 
-
-    section_ctrl = ['$scope', '$routeParams', '$http', '$sce', 'conf', 'examples', 'menu'];
-
-    function section_ctrl($scope, $routeParams, $http, $sce, conf, examples, menu) {
-        $scope.menu = menu;
-        examples.findSection($routeParams.sectionNumber, function(section) {
-            $scope.section = section;
-            $scope.readme = conf.examplesPath + 'section' + section.id + '.html';
-        });
+        function set_sub_title(title) {
+            subtitle = angular.isString(title) ? title : null;
+        }
     }
 
 

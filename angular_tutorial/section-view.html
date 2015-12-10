@@ -1,10 +1,17 @@
 <div layout="column" flex layout-margin>
 
-    <h1>{{section.name}}</h1>
+    <h1>{{ctrl.section.name}}</h1>
 
-    <div ng-include="readme" flex layout-padding></div>
+    <div ng-include="ctrl.readme" flex layout-padding></div>
 
-    <div ng-repeat="example in section.examples">
-        <a href="#/examples/{{example.id}}">Example {{example.id}}: {{example.message}}</a>
+    <div layout-padding>
+        <div ng-repeat="example in ctrl.section.examples">
+            <a ui-sref="example({exampleNumber: example.id})">Example {{ example.id }}: {{ example.message }}</a>
+        </div>
+    </div>
+
+    <div layout-margin>
+        <md-button class="md-primary md-raised" ng-href="{{ ctrl.previous }}">Previous</md-button>
+        <md-button class="md-primary md-raised" ng-href="{{ ctrl.next }}">Next</md-button>
     </div>
 </div>
