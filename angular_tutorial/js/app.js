@@ -211,6 +211,7 @@
             selectSection: function(section) {
                 selectedsection = angular.isDefined(section) ? section: null;
                 openedsection = selectedsection;
+                set_sub_title();
             },
             toggleSelectSection: function(section) {
                 openedsection = (openedsection === section ? null : section);
