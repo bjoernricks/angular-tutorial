@@ -2,7 +2,7 @@
 <html ng-app="angTutApp">
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <title>Angular Tutorial</title>
+        <title ng-controller="BaseCtrl as ctrl">{{ ctrl.menu.getTitle() }}</title>
 
         <link rel="stylesheet" href="js/components/angular-material/angular-material.css">
         <link rel="stylesheet" href="css/tomorrow.css">
