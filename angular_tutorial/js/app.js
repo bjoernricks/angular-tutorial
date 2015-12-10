@@ -205,13 +205,16 @@
 
     function menu() {
         var openedsection = null;
+        var selectedsection = null;
         var service = {
             selectSection: function(section) {
-                openedsection = angular.isDefined(section) ? section: null;
+                selectedsection = angular.isDefined(section) ? section: null;
+                openedsection = selectedsection;
             },
             toggleSelectSection: function(section) {
                 openedsection = (openedsection === section ? null : section);
             },
+            isSectionOpened: is_section_opened,
             isSectionSelected: is_section_selected,
             getSectionName: get_section_name,
             getTitle: get_title,
@@ -228,15 +231,19 @@
             return title;
         }
 
-        function is_section_selected(section) {
+        function is_section_opened(section) {
             return angular.isObject(openedsection) && openedsection.id === section.id;
         }
 
+        function is_section_selected(section) {
+            return angular.isObject(selectedsection) && selectedsection.id === section.id;
+        }
+
         function get_section_name() {
-            if (!openedsection) {
+            if (!selectedsection) {
                 return "";
             }
-            return openedsection.name;
+            return selectedsection.name;
         }
     }
 
