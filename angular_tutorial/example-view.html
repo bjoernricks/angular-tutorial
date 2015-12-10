@@ -1,34 +1,34 @@
 <div layout="column" flex>
-    <h1><a href="{{runUrl}}" target="_blank" >Example {{example.id}} {{ example.message }}</a></h1>
+    <h1><a href="{{runUrl}}" target="_blank" >Example {{ctrl.example.id}} {{ ctrl.example.message }}</a></h1>
     <div layout="column" layout-gt-md="row" flex>
         <md-tabs md-border-bottom flex class="md-whiteframe-z1" layout-margin>
             <md-tab id="preview">
                 <md-tab-label>Preview</md-tab-label>
                 <md-tab-body layout-padding>
-                    <iframe layout-fill ng-src="{{runUrl}}"></iframe>
+                    <iframe layout-fill ng-src="{{ ctrl.runUrl }}"></iframe>
                 </md-tab-body>
             </md-tab>
             <md-tab id="info">
                 <md-tab-label>Info</md-tab-label>
                 <md-tab-body layout-padding>
-                    <h4 layout-padding>{{example.message}}</h4>
+                    <h4 layout-padding>{{ctrl.example.message}}</h4>
 
-                    <div ng-include="readme" flex layout-padding></div>
+                    <div ng-include="ctrl.readme" flex layout-padding></div>
                 </md-tab-body>
             </md-tab>
         </md-tabs>
         <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex" flex class="md-whiteframe-z1"
                 layout-margin>
-            <md-tab ng-repeat="file in example.files" flex label="{{file}}">
+            <md-tab ng-repeat="file in ctrl.example.files" flex label="{{file}}">
                 <md-content class="demo-tab tab{{$index%4}}">
-                    <div at-hljs file="file" example="example" layout-margin layout-padding>
+                    <div at-hljs file="ctrl.file" example="ctrl.example" layout-margin layout-padding>
                     </div>
                 </md-content>
             </md-tab>
         </md-tabs>
     </div>
     <div>
-        <md-button class="md-primary md-raised" ng-href="#/examples/{{example.id - 1 }}">Previous</md-button>
-        <md-button class="md-primary md-raised" ng-href="#/examples/{{example.id + 1 }}">Next</md-button>
+        <md-button class="md-primary md-raised" ng-href="#/examples/{{ctrl.example.id - 1 }}">Previous</md-button>
+        <md-button class="md-primary md-raised" ng-href="#/examples/{{ctrl.example.id + 1 }}">Next</md-button>
     </div>
 </div>

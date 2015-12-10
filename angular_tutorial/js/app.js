@@ -6,17 +6,14 @@
     'use strict';
 
     angular.module('angTutApp',
-        ['ui.router', 'ngMaterial']
+        ['ui.router', 'ngMaterial', 'angTutApp.controllers']
     )
     .config(app_config)
     .factory('conf', conf)
     .factory('examples', examples)
     .factory('menu', menu)
     .directive('hl', hl)
-    .directive('atHljs', at_hljs)
-    .controller('HomeCtrl', home_ctrl)
-    .controller('SectionCtrl', section_ctrl)
-    .controller('ExampleDetailCtrl', example_detail_ctrl);
+    .directive('atHljs', at_hljs);
 
     app_config.$inject = ['$stateProvider', '$urlRouterProvider'];
 
@@ -29,7 +26,8 @@
             state('example', {
                     url: '/examples/:exampleNumber',
                     templateUrl: 'example-view.html',
-                    controller: 'ExampleDetailCtrl'
+                    controller: 'ExampleDetailCtrl',
+                    controllerAs: 'ctrl',
             }).
             state('section', {
                     url: '/sections/:sectionNumber',
@@ -129,45 +127,6 @@
             }
         };
         return service;
-    }
-
-
-    home_ctrl.$inject = ['$scope', 'examples', 'menu'];
-
-    function home_ctrl($scope, examples, menu) {
-        $scope.menu = menu;
-        examples.list(function(examples) {
-            $scope.examples = examples;
-        });
-    }
-
-
-    example_detail_ctrl.$inject = ['$scope', '$stateParams', '$http', '$sce', 'conf',
-        'examples', 'menu'];
-
-    function example_detail_ctrl($scope, $stateParams, $http, $sce, conf, examples, menu) {
-        $scope.menu = menu;
-        examples.find($stateParams.exampleNumber, function(example) {
-            $scope.example = example;
-            var examplePath = conf.examplesPath + example.id + '/';
-            $scope.runUrl = examplePath + 'index.html';
-            $scope.readme = examplePath + 'readme.html';
-        });
-
-        examples.findSectionFromExample($stateParams.exampleNumber, function(section) {
-            menu.setSelectSection(section);
-        });
-    }
-
-
-    section_ctrl = ['$scope', '$stateParams', '$http', '$sce', 'conf', 'examples', 'menu'];
-
-    function section_ctrl($scope, $stateParams, $http, $sce, conf, examples, menu) {
-        $scope.menu = menu;
-        examples.findSection($stateParams.sectionNumber, function(section) {
-            $scope.section = section;
-            $scope.readme = conf.examplesPath + 'section' + section.id + '.html';
-        });
     }
 
 
