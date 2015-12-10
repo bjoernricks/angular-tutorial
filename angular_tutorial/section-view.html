@@ -9,4 +9,9 @@
             <a ui-sref="example({exampleNumber: example.id})">Example {{ example.id }}: {{ example.message }}</a>
         </div>
     </div>
+
+    <div layout-margin>
+        <md-button class="md-primary md-raised" ng-href="{{ ctrl.previous }}">Previous</md-button>
+        <md-button class="md-primary md-raised" ng-href="{{ ctrl.next }}">Next</md-button>
+    </div>
 </div>
