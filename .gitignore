@@ -1,5 +1,44 @@
 # ignore bower managed files
-angular_tutorial/js/components
+angular_tutorial/js/components/angular-animate/.bower.json
+angular_tutorial/js/components/angular-animate/README.md
+angular_tutorial/js/components/angular-animate/bower.json
+angular_tutorial/js/components/angular-animate/index.js
+angular_tutorial/js/components/angular-animate/package.json
+angular_tutorial/js/components/angular-aria/.bower.json
+angular_tutorial/js/components/angular-aria/README.md
+angular_tutorial/js/components/angular-aria/bower.json
+angular_tutorial/js/components/angular-aria/index.js
+angular_tutorial/js/components/angular-aria/package.json
+angular_tutorial/js/components/angular-material/.bower.json
+angular_tutorial/js/components/angular-material/.gitignore
+angular_tutorial/js/components/angular-material/CHANGELOG.md
+angular_tutorial/js/components/angular-material/LICENSE
+angular_tutorial/js/components/angular-material/README.md
+angular_tutorial/js/components/angular-material/angular-material.scss
+angular_tutorial/js/components/angular-material/bower.json
+angular_tutorial/js/components/angular-material/demos/
+angular_tutorial/js/components/angular-material/index.js
+angular_tutorial/js/components/angular-material/modules/
+angular_tutorial/js/components/angular-material/package.json
+angular_tutorial/js/components/angular-route/.bower.json
+angular_tutorial/js/components/angular-route/README.md
+angular_tutorial/js/components/angular-route/bower.json
+angular_tutorial/js/components/angular-route/index.js
+angular_tutorial/js/components/angular-route/package.json
+angular_tutorial/js/components/angular-ui-router/.bower.json
+angular_tutorial/js/components/angular-ui-router/CHANGELOG.md
+angular_tutorial/js/components/angular-ui-router/CONTRIBUTING.md
+angular_tutorial/js/components/angular-ui-router/LICENSE
+angular_tutorial/js/components/angular-ui-router/README.md
+angular_tutorial/js/components/angular-ui-router/api/
+angular_tutorial/js/components/angular-ui-router/bower.json
+angular_tutorial/js/components/angular-ui-router/src/
+angular_tutorial/js/components/angular/.bower.json
+angular_tutorial/js/components/angular/README.md
+angular_tutorial/js/components/angular/bower.json
+angular_tutorial/js/components/angular/index.js
+angular_tutorial/js/components/angular/package.json
+
 # ignore node.js modules
 node_modules
 
