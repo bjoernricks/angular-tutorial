@@ -207,7 +207,7 @@
         var openedsection = null;
         var service = {
             selectSection: function(section) {
-                openedsection = section;
+                openedsection = angular.isDefined(section) ? section: null;
             },
             toggleSelectSection: function(section) {
                 openedsection = (openedsection === section ? null : section);
