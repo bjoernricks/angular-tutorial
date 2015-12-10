@@ -35,7 +35,6 @@
 
     function ExampleDetailCtrl($stateParams, $http, $sce, conf, examplesService, menu) {
         var ctrl = this;
-        ctrl.menu = menu;
         examplesService.setExample($stateParams.exampleNumber).then(function(example) {
             var examplePath = conf.examplesPath + example.id + '/';
             ctrl.example = example;
@@ -55,7 +54,6 @@
 
     function SectionCtrl($stateParams, $http, $sce, conf, examplesService, menu) {
         var ctrl = this;
-        ctrl.menu = menu;
         examplesService.setSection($stateParams.sectionNumber).then(function(section) {
             ctrl.section = section;
             ctrl.readme = conf.examplesPath + 'section' + section.id + '.html';
