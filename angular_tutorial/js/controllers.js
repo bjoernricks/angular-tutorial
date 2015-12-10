@@ -17,6 +17,7 @@
 
     function HomeCtrl(menu) {
         var ctrl = this;
+        menu.selectSection();
     }
 
     BaseCtrl.$inject = ['menu', 'examplesService'];
