@@ -44,7 +44,7 @@
             ctrl.hasNext = examplesService.hasNext();
             ctrl.previous = examplesService.getPrevious();
             ctrl.hasPrevious = examplesService.hasPrevious();
-            menu.setSelectSection(example.section);
+            menu.selectSection(example.section);
         });
 
     }
@@ -62,7 +62,7 @@
             ctrl.hasNext = examplesService.hasNext();
             ctrl.previous = examplesService.getPrevious();
             ctrl.hasPrevious = examplesService.hasPrevious();
-            menu.setSelectSection(section);
+            menu.selectSection(section);
         });
     }
 })();

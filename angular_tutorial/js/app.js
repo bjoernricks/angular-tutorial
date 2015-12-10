@@ -214,9 +214,6 @@
             },
             isSectionSelected: is_section_selected,
             getSectionName: get_section_name,
-            setSelectSection: function(section) {
-                openedsection = section;
-            },
             getTitle: get_title,
         };
         return service;
