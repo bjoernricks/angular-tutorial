@@ -216,9 +216,20 @@
             getSectionName: get_section_name,
             setSelectSection: function(section) {
                 openedsection = section;
-            }
+            },
+            getTitle: get_title,
         };
         return service;
+
+        function get_title() {
+            var title = 'Angular Tutorial';
+            var sectionname = get_section_name();
+            if (sectionname) {
+                title = title + ' - ' + sectionname;
+
+            }
+            return title;
+        }
 
         function is_section_selected(section) {
             return angular.isObject(openedsection) && openedsection.id === section.id;
