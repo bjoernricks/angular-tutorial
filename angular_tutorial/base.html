@@ -12,7 +12,7 @@
         <div ng-repeat="section in base.sections" layout-margin>
             <md-button class="menu-item menu-parent-item md-primary"
                 ng-click="base.menu.toggleSelectSection(section)"
-                md-highlight="base.menu.isSectionSelected(section)"
+                ng-class="{'md-active': base.menu.isSectionSelected(section)}"
                 ui-sref="section({sectionNumber: section.id})">
                 {{section.name}}
             </md-button>
