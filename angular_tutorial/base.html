@@ -13,14 +13,14 @@
             <md-button class="menu-item menu-parent-item md-primary"
                 ng-click="base.menu.toggleSelectSection(section)"
                 md-highlight="base.menu.isSectionSelected(section)"
-                ng-href="#/sections/{{section.id}}">
+                ui-sref="section({sectionNumber: section.id})">
                 {{section.name}}
             </md-button>
 
             <md-button class="menu-item menu-sub-item md-menu-item"
-                ng-repeat="example in base.section.examples"
+                ng-repeat="example in section.examples"
                 ng-show="base.menu.isSectionSelected(section)"
-                ng-href="#/examples/{{example.id}}">
+                ui-sref="example({exampleNumber: example.id})">
                 Example {{example.id}}
             </md-button>
         </div>
