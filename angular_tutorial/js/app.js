@@ -32,7 +32,8 @@
             state('section', {
                     url: '/sections/:sectionNumber',
                     templateUrl: 'section-view.html',
-                    controller: 'SectionCtrl'
+                    controller: 'SectionCtrl',
+                    controllerAs: 'ctrl',
             });
         $urlRouterProvider.otherwise('/');
     }

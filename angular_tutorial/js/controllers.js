@@ -42,17 +42,18 @@
     }
 
 
-    section_ctrl = ['$scope', '$stateParams', '$http', '$sce', 'conf', 'examplesService', 'menu'];
+    section_ctrl = ['$stateParams', '$http', '$sce', 'conf', 'examplesService', 'menu'];
 
-    function section_ctrl($scope, $stateParams, $http, $sce, conf, examplesService, menu) {
-        $scope.menu = menu;
+    function section_ctrl($stateParams, $http, $sce, conf, examplesService, menu) {
+        var ctrl = this;
+        ctrl.menu = menu;
         examplesService.setSection($stateParams.sectionNumber).then(function(section) {
-            $scope.section = section;
-            $scope.readme = conf.examplesPath + 'section' + section.id + '.html';
-            $scope.next = examplesService.getNext();
-            $scope.hasNext = examplesService.hasNext();
-            $scope.previous = examplesService.getPrevious();
-            $scope.hasPrevious = examplesService.hasPrevious();
+            ctrl.section = section;
+            ctrl.readme = conf.examplesPath + 'section' + section.id + '.html';
+            ctrl.next = examplesService.getNext();
+            ctrl.hasNext = examplesService.hasNext();
+            ctrl.previous = examplesService.getPrevious();
+            ctrl.hasPrevious = examplesService.hasPrevious();
             menu.setSelectSection(section);
         });
     }
