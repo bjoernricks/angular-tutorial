@@ -10,7 +10,7 @@
     )
     .config(app_config)
     .factory('conf', conf)
-    .factory('examples', examples)
+    .factory('examplesService', examplesService)
     .factory('menu', menu)
     .directive('hl', hl)
     .directive('atHljs', at_hljs);
@@ -44,65 +44,134 @@
         return service;
     }
 
+    examplesService.$inject = ['$http', '$q', '$state'];
 
-    examples.$inject = ['$http'];
+    function examplesService($http, $q, $state) {
 
-    function examples($http) {
+        var section = null;
+        var example = null;
+        var examples = null;
+
         var service = {
-            list: get_data,
-            find: find,
-            findSection: find_section,
-            findSectionFromExample: find_section_from_example,
+            get: get_examples,
+            setSection: set_section,
+            setExample: set_example,
+            getNext: get_next,
+            hasNext: has_next,
+            hasPrevious: has_previous,
+            getPrevious: get_previous,
         };
 
         return service;
 
-        function get_data(callback) {
-            $http({
-                method: 'GET',
-                url: 'examples.json',
-                cache: true
-            }).success(callback);
-        }
-
-        function find(exampleNumber, callback) {
-            get_data(function(data) {
-                var index = parseInt(exampleNumber);
-                angular.forEach(data, function(section, key) {
-                    angular.forEach(section.examples, function(example, key) {
-                        if (example.id == index) {
-                            callback(example);
-                        }
-                    });
-                });
-            });
-        }
-
-        function find_section(sectionNumber, callback) {
-            get_data(function(data) {
-                var index = parseInt(sectionNumber);
-                angular.forEach(data, function(section, key) {
-                    if (section.id == index) {
-                        callback(section);
+        function set_section(sectionid) {
+            return get_examples().then(function(data) {
+                for(var i=0; i < data.length; i++) {
+                    var sec = data[i];
+                    if (sec.id == sectionid) {
+                        section = sec;
+                        example = null;
+                        return section;
                     }
-                });
+                }
             });
         }
 
-        function find_section_from_example(exampleNumber, callback) {
-            get_data(function(data) {
-                var index = parseInt(exampleNumber);
-                angular.forEach(data, function(section, key) {
-                    angular.forEach(section.examples, function(example, key) {
-                        if (example.id == index) {
-                            callback(section);
+        function set_example(exampleid) {
+            return get_examples().then(function(data) {
+                for(var i=0; i < data.length; i++) {
+                    var sec = data[i];
+                    for(var j=0; j < sec.examples.length; j++) {
+                        var ex = sec.examples[j];
+                        if (ex.id == exampleid) {
+                            section = sec;
+                            example = ex;
+                            return example;
                         }
-                    });
-                });
+                    }
+                }
             });
+        }
+
+        function get_examples() {
+            var deferred = $q.defer();
+
+            if (examples !== null) {
+                deferred.resolve(examples);
+            }
+            else {
+                $http.get('examples.json', {cache: true}).then(
+                    function(response) {
+                        set_examples(response.data);
+                        deferred.resolve(examples);
+                    },
+                    function(response) {
+                        deferred.reject(response);
+                    }
+                );
+            }
+
+            return deferred.promise;
+        }
+
+        function get_next() {
+            if (angular.isObject(example) && angular.isObject(example.next)) {
+                return $state.href('example', {exampleNumber: example.next.id});
+            }
+
+            if (angular.isObject(section) && angular.isObject(section.next)) {
+                return $state.href('section', {sectionNumber: section.next.id});
+            }
+
+            return "#/";
+        }
+
+        function get_previous() {
+            if (angular.isObject(example) && angular.isObject(example.prev)) {
+                return $state.href('example', {exampleNumber: example.prev.id});
+            }
+
+            if (angular.isObject(section) && angular.isObject(section.prev)) {
+                return $state.href('section', {sectionNumber: section.prev.id});
+            }
+
+            return "#/";
+        }
+
+        function has_next() {
+            return (angular.isObject(example) && angular.isObject(example.next)) ||
+                (angular.isObject(section) && angular.isObject(section.next));
+        }
+
+        function has_previous() {
+            return angular.isObject(section) && angular.isObject(example);
+        }
+
+        function set_examples(data) {
+            var secprev = null;
+            for (var i=0; i < data.length; i++) {
+                var sec = data[i];
+
+                sec.prev = secprev;
+                if (angular.isObject(secprev)) {
+                    secprev.next = sec;
+                }
+                secprev = sec;
+
+                var exprev = null;
+                for (var j=0; j < sec.examples.length; j++) {
+                    var ex = sec.examples[j];
+                    ex.prev = exprev;
+                    ex.section = sec;
+                    if (angular.isObject(exprev)) {
+                        exprev.next = ex;
+                    }
+                    exprev = ex;
+                }
+            }
+            examples = data;
         }
     }
-
 
     function menu() {
         var openedsection = null;

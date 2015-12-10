@@ -28,7 +28,7 @@
         </md-tabs>
     </div>
     <div>
-        <md-button class="md-primary md-raised" ng-href="#/examples/{{ctrl.example.id - 1 }}">Previous</md-button>
-        <md-button class="md-primary md-raised" ng-href="#/examples/{{ctrl.example.id + 1 }}">Next</md-button>
+        <md-button class="md-primary md-raised" ng-href="{{ ctrl.previous }}" ng-if="ctrl.hasPrevious">Previous</md-button>
+        <md-button class="md-primary md-raised" ng-href="{{ ctrl.next }}" ng-if="ctrl.hasNext">Next</md-button>
     </div>
 </div>
